@@ -9,17 +9,16 @@
         </div>
 
       <div class="main">
-        <p>
-            <router-link to="addAdd">
-              新增
-
-            </router-link>
-        </p>
-
+        <div>
+        </div>
       </div>
-      <div class="footer">
-
-      </div>
+      
+      <router-link to="addAdd">
+          <div class="footer">
+          添加新地址
+          </div>
+      </router-link>
+     
 
   </div>
 </template>

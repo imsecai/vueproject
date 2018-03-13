@@ -1,4 +1,8 @@
 #selectAdd{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+
     .header {
         .selectAdd-title {
             padding: .333333rem/* 25/75 */.426667rem/* 32/75 */;
@@ -10,6 +14,19 @@
                 font-weight: bold;
             }
         }
+    }
+    .main{
+        flex:1;
+    }
+
+    .footer{
+        font-size: .453333rem /* 34/75 */;
+        line-height: 1.173333rem /* 88/75 */;
+        text-align:center;
+        background: #ff5541;
+        
+            color:#fff;
+        
     }
 
 }
