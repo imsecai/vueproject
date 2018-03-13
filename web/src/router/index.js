@@ -6,9 +6,15 @@ import Register from '../components/register/register'
 import HomePage from '../components/homePage/homePage'
 import Detail from '../components/detail/detail'
 import ListPage from '../components/listPage/listPage'
+import shopCar from '../components/shopCar/shopCar.vue'
+import manage from "../components/shopCar/manage/manage.vue"
+import spinner from "../components/spinner/spinner.vue"
+import order from "../components/order/order.vue"
+import selectAdd from "../components/order/selectAdd/selectAdd.vue"
+import addAdd from "../components/order/addAdd/addAdd.vue"
+import payment from "../components/order/payment/payment.vue"
 
 Vue.use(VueRouter);
-
 
 const router = new VueRouter({
        routes:[
@@ -36,7 +42,43 @@ const router = new VueRouter({
                path:'/ListPage',
                name:'ListPage',
                component:ListPage,
+           },
+           {
+               path: '/shopCar',
+               name: 'shopCar',
+               component: shopCar,
+           },
+           {
+               path: '/manage',
+               name: 'manage',
+               component: manage,
+           },
+           {
+               path:'./spinner',
+               name:'spinner',
+               component:spinner
+           },
+           {
+               path:'/order',
+               name:'order',
+               component:order
+           },
+           {
+               path:'/selectAdd',
+               name:'selectAdd',
+               component:selectAdd
+           },
+           {
+               path:'/addAdd',
+               name:'addAdd',
+               component:addAdd
+           },
+           {
+               path:'/payment',
+               name:'payment',
+               component:payment
            }
+           
        ]
 })
 

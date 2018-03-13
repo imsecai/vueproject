@@ -1,0 +1,15 @@
+#selectAdd{
+    .header {
+        .selectAdd-title {
+            padding: .333333rem/* 25/75 */.426667rem/* 32/75 */;
+            font-size: .506667rem/* 38/75 */;
+            margin-bottom: .266667rem/* 20/75 */;
+            display: flex;
+            justify-content: space-between;
+            li:nth-child(2) {
+                font-weight: bold;
+            }
+        }
+    }
+
+}

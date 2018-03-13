@@ -1,0 +1,31 @@
+#addAdd {
+  .header {
+        .addAdd-title {
+            padding: .333333rem/* 25/75 */.426667rem/* 32/75 */;
+            font-size: .506667rem/* 38/75 */;
+            margin-bottom: .266667rem/* 20/75 */;
+            display: flex;
+            justify-content: space-between;
+            li:nth-child(2) {
+                font-weight: bold;
+            }
+        }
+    }
+
+    .main{
+        padding:.333333rem /* 25/75 */ .426667rem /* 32/75 */;
+        font-size:.426667rem /* 32/75 */;
+        line-height: 1.333333rem /* 100/75 */;
+        .city{
+            height: 4rem /* 300/75 */;
+            select{
+                width: 2rem /* 150/75 */;
+                height: .666667rem /* 50/75 */;
+                font-size: .32rem /* 24/75 */;
+                option{
+                    font-size: .16rem /* 12/75 */;
+                }
+            }
+        }
+    }
+}
