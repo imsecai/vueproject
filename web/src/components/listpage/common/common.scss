@@ -1,0 +1,48 @@
+.listImg_L{
+    padding-left:.293333rem;
+    li{
+        margin-top:.24rem
+    }
+    li:nth-child(1){
+        margin-top:.12rem;
+        
+    }
+}
+.goodslist_box_L{
+    display:flex;
+    flex-direction:column;
+    height: 100%;
+    width: 100%;
+    .gds_head_L{
+        height: 1.173333rem;
+    }
+    .sort_L{
+        height:1.173333rem;
+        width: 100%;
+        background:#F6F6F6;
+        display:flex;
+        color:#949494;
+        font-size:28px;
+        line-height: 1.173333rem;
+        text-align:center;
+        span{
+            width: 33.3333333%;
+            height: 100%;
+        }
+        span:hover{
+            font-weight: bold;
+            color:#222;
+        }
+    }
+    .goodslist_L{
+        flex:1;
+        width: 100%;
+        padding:0 .2rem;
+        display:flex;
+        overflow-x: hidden;
+        flex-wrap: wrap;
+        li{
+            width: 50%;
+        }
+    }
+}

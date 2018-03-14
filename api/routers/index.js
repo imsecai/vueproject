@@ -6,12 +6,15 @@ var db = require('../db/db');
 
 var path = require('path');
 // var Login = require('./login/Login');
+var listpage = require('./listPage.js')
 
 module.exports = {
     start:function(port){
         app.use(bodyParser.urlencoded({extended:false}));
         app.use(bodyParser.json());
         app.use(express.static(path.join(__dirname, '/')));
+
+
 
         app.all('*', function(req, res, next) {
             res.header("Access-Control-Allow-Origin", "*");
@@ -26,6 +29,8 @@ module.exports = {
         });  
 
         // Login.userPost(app,db);           
+        // app.listen(port);
+        listpage.register(app,db)
         // app.listen(port);
 
         app.listen(port,function(){
