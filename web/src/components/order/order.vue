@@ -41,25 +41,33 @@
             <router-link to="/payment">提交订单</router-link>
             </div>
         </div>
+        <spinner v-if="show"></spinner>
     </div>
 </template>
 
 <script>
     import "./order.scss";
+    import spinner from '../spinner/spinner.vue'
     import http from 'axios';
     export default {
         data(){
             return {
                 dataset:[],
+                show : false
             }
         },
         methods:{
 
         },
+        components:{
+            spinner,
+        },
         mounted(){
+            this.show = true;
             http.get('http://localhost:8080/shopCarApi/shopCarApi.json').then((res)=>{
                 this.dataset = res.data;
             })
+            this.show = false;
 
         }
     

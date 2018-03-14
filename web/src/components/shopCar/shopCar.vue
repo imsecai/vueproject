@@ -31,15 +31,18 @@
             </div>
             <div class="footer-right">
                 <span class="total">总计:￥{{total}} </span>
-                <span class="account"><router-link to="order">结算()</router-link></span>
+                <span class="account"><router-link to="order">结算( {{lis.length}} )</router-link></span>
             </div>
         </div>
+        <spinner v-if="show"></spinner>
     </div>
+    
 
 </template>
 
 <script>
     import './shopCar.scss';
+    import spinner from '../spinner/spinner.vue'
     import http from 'axios';
 
     export default {
@@ -47,7 +50,8 @@
             return {
                 dataset:[],
                 lis:[],
-                total:0
+                total:0,
+                show:false,
             }
         },
         methods:{
@@ -57,8 +61,7 @@
                     this.lis.splice(this.lis.indexOf(idx),1);
                 }else{
                     this.lis.push(idx);
-                    this.lis.forEach((item)=>{
-                    })
+                    
                 }
                 this.lis.forEach((item)=>{
                     this.total += this.dataset[item].price * this.dataset[item].qty;
@@ -81,11 +84,16 @@
                 }
             }
         },
+        components:{
+            spinner
+        },
         mounted(){
+            this.show = true;
             http.get('http://localhost:8080/shopCarApi/shopCarApi.json').then((res)=>{
                 console.log(res);
                 this.dataset = res.data;
             })
+            this.show = false;
         }
     }
 </script>

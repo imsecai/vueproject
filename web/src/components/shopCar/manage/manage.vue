@@ -54,8 +54,7 @@
                     this.lis.splice(this.lis.indexOf(idx),1);
                 }else{
                     this.lis.push(idx);
-                    this.lis.forEach((item)=>{
-                    })
+                  
                 }
                 this.lis.forEach((item)=>{
                     this.total += this.dataset[item].price * this.dataset[item].qty;

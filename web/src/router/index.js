@@ -8,7 +8,6 @@ import Detail from '../components/detail/detail'
 import ListPage from '../components/listPage/listPage'
 import shopCar from '../components/shopCar/shopCar.vue'
 import manage from "../components/shopCar/manage/manage.vue"
-import spinner from "../components/spinner/spinner.vue"
 import order from "../components/order/order.vue"
 import selectAdd from "../components/order/selectAdd/selectAdd.vue"
 import addAdd from "../components/order/addAdd/addAdd.vue"
@@ -53,11 +52,7 @@ const router = new VueRouter({
                name: 'manage',
                component: manage,
            },
-           {
-               path:'./spinner',
-               name:'spinner',
-               component:spinner
-           },
+          
            {
                path:'/order',
                name:'order',

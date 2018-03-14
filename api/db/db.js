@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 var mysql = require('mysql');
 
 
@@ -62,3 +63,10 @@ module.exports = {
         })
     },
 }
+=======
+var db = require('./DBHelper');
+
+module.exports = {
+   mysql:db,
+}
+>>>>>>> 5055dbfe31f7b97f1ec4226c9b2424860442fe1b
