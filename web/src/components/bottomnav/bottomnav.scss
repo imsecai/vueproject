@@ -1,0 +1,25 @@
+#bottomnav{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1.306667rem;
+    display: flex; 
+    justify-content: space-between;
+    text-align: center;
+    border-top: 1px solid #ddd;
+    padding-top:0.133333rem;
+    background: #fff;
+    .router-link-active{
+        color: #FF6766;
+    }
+    a{
+        display: block;
+        flex: 1;
+        font-size:0.373333rem; 
+        i{
+            display: block;
+            font-size:0.426667rem;
+        }
+    }
+}

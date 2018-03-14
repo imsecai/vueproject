@@ -6,6 +6,7 @@ import Register from '../components/register/register'
 import HomePage from '../components/homePage/homePage'
 import Detail from '../components/detail/detail'
 import ListPage from '../components/listPage/listPage'
+import User from '../components/user/user'
 
 Vue.use(VueRouter);
 
@@ -36,6 +37,11 @@ const router = new VueRouter({
                path:'/ListPage',
                name:'ListPage',
                component:ListPage,
+           },
+           {
+               path:'/User',
+               name:'User',
+               component:User
            }
        ]
 })
