@@ -17,20 +17,10 @@
            }
        },
        methods:{
-           getmsg(){
-               this.$store.dispatch('getmsg_get',{path:'product/',msg:{houseOwner:'Kemo'}});
-           },
-           postmsg(){
-               this.$store.dispatch('getmsg_post',{path:'product',msg:{houseOwner:'Kemo'}});
-           }
+          
        },
        computed:{
-           get_msg:{
-               get:function(){
-                   console.log(11555);
-                   return this.$store.getters.getmsg_get;
-               }
-           }
+           
        }
    }
 </script>
