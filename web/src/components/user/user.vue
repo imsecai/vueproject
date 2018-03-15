@@ -12,25 +12,25 @@
             <ul>
                 <li>
                     <div class="bcar">
-                        <i>i</i>
+                        <i class="iconfont icon-gouwuche"></i>
                         <p>购物车</p>
                     </div>
                 </li>
                 <li>
                     <div class="scang">
-                        <i>i</i>
+                        <i class="iconfont icon-shoucang"></i>
                         <p>收藏</p>
                     </div>
                 </li>
                 <li>
                     <div class="lquan">
-                        <i>i</i>
+                        <i class="iconfont icon-weibiaoti2fuzhi02"></i>
                         <p>礼券</p>
                     </div>
                 </li>
                 <li>
                     <div class="fxiang">
-                        <i>i</i>
+                        <i class="iconfont icon-fenxiang"></i>
                         <p>分享</p>
                     </div>
                 </li>
@@ -45,13 +45,13 @@
             <ul>
                 <li>
                     <div class="bcar">
-                        <i>i</i>
-                        <p><router-link to="/myorder">代付款</router-link></p>
+                        <i class="iconfont icon-daifukuan"></i>
+                        <p><router-link to="/myorder">待付款</router-link></p>
                     </div>
                 </li>
                 <li>
                     <div class="scang">
-                        <i>i</i>
+                        <i class="iconfont icon-daishouhuo"></i>
                         <p><router-link to="/myorder2">待收货</router-link></p>
                     </div>
                 </li>
