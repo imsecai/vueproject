@@ -12,8 +12,10 @@
             <span>筛选</span>
         </div>
         <ul class="goodslist_L">
-            <li v-for="(obj,idx) in dataset" v-if="obj.Category == category">
-                <img :src="'http://localhost:1111/src/assets/productimg/'+obj.Img1">
+            <li v-for="(obj,idx) in dataset" v-if="obj.Category == category" :data-id = "obj.pID">
+                <router-link :to="'/Detail/'+obj.pID">
+                    <img :src="'http://localhost:1111/src/assets/productimg/'+obj.Img1">
+                </router-link>
                 <h4>{{obj.Title}}</h4>
                 <p>{{obj.Describe}}</p>
                 <span>￥{{obj.Price}}</span>
