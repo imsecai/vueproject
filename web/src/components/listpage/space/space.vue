@@ -2,23 +2,30 @@
     <div>
         <ul class="listImg_L">
             <li>
-                <router-link to="/spaceList">
-                    <img src="http://localhost:1111/src/img/space/bed.png" alt="">
+                <router-link to="/spaceList_beds">
+                    <img src="http://localhost:1111/src/assets/img/space/bed.png" alt="">
                 </router-link>
             </li>
-            <li><img src="http://localhost:1111/src/img/space/cabinets.png" alt=""></li>
-            <li><img src="http://localhost:1111/src/img/space/chair.png" alt=""></li>
-            <li><img src="http://localhost:1111/src/img/space/sofa.png" alt=""></li>
-            <li><img src="http://localhost:1111/src/img/space/shelves.png" alt=""></li>
-            <li><img src="http://localhost:1111/src/img/space/mettresses.png" alt=""></li>
-            <li><img src="http://localhost:1111/src/img/space/dexks.png" alt=""></li>
-            <li><img src="http://localhost:1111/src/img/space/household_goods.png" alt=""></li>
-            <li><img src="http://localhost:1111/src/img/space/table.png" alt=""></li>
+            <li>
+                <router-link to="/spaceList_storage">
+                    <img src="http://localhost:1111/src/assets/img/space/cabinets.png" alt="">
+                </router-link>
+            </li>
+            <li><img src="http://localhost:1111/src/assets/img/space/chair.png" alt=""></li>
+            <li><img src="http://localhost:1111/src/assets/img/space/sofa.png" alt=""></li>
+            <li><img src="http://localhost:1111/src/assets/img/space/shelves.png" alt=""></li>
+            <li><img src="http://localhost:1111/src/assets/img/space/mettresses.png" alt=""></li>
+            <li><img src="http://localhost:1111/src/assets/img/space/dexks.png" alt=""></li>
+            <li><img src="http://localhost:1111/src/assets/img/space/household_goods.png" alt=""></li>
+            <li><img src="http://localhost:1111/src/assets/img/space/table.png" alt=""></li>
         </ul>
     </div>
 </template>
 
 <script>
     import '../common/common.scss'
-    export default{}
+    
+    export default{
+
+    }
 </script>

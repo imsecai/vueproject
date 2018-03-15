@@ -1,4 +1,4 @@
-const db = require('../db/DBHelper');
+const db = require('../../db/DBHelper');
 
 module.exports = {
     register(app){

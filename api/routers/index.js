@@ -6,12 +6,13 @@ var db = require('../db/db');
 
 var path = require('path');
 // var Login = require('./login/Login');
-var listpage = require('./listPage.js')
+var listpage = require('./listPage/listPage.js')
+var loginPost = require('./login/login');
 
 module.exports = {
     start:function(port){
         app.use(bodyParser.urlencoded({extended:false}));
-        app.use(bodyParser.json());
+        // app.use(bodyParser.json());
         app.use(express.static(path.join(__dirname, '/')));
 
 
@@ -28,7 +29,7 @@ module.exports = {
             }
         });  
 
-        // Login.userPost(app,db);           
+        loginPost.userPost(app,db);           
         // app.listen(port);
         listpage.register(app,db)
         // app.listen(port);

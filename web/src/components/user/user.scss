@@ -1,0 +1,98 @@
+#user{
+    background-color:#F6F6F6;
+    .user_head{
+        position: relative;
+        height: 360px;
+        text-align: center;
+        background-color: #fe5a4c;
+        padding-top:20px;
+        img{
+            height:130px;
+        }
+        .user_tx{
+            position: absolute;
+            display: block;
+            width: 160px;
+            height: 160px;
+            border-radius: 100%;
+            border: 4px solid #fff;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-25%);
+            img{
+                width: 100%;
+                height: 100%;
+                border-radius: 100%;
+            }
+        }
+        .users{
+            width: 376px;
+            font-size:32px;
+            position: absolute;
+            bottom: 6px;
+            left: 50%;
+            color: #fff;
+            z-index: 2;
+            transform: translateX(-50%);
+        }
+    }
+    .user_tab{
+        background-color: #fff;
+        margin-bottom: 20px;
+        padding: 25px 0;
+        ul{
+            display: flex;
+            justify-content: center;
+            li{
+                flex:1;
+                .bcar,.scang,.lquan,.fxiang{
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    color: #828282;
+                    i{
+                        font-size:32px;
+                    }
+                    p{
+                        font-size:24px;
+                    }
+                }
+            }
+        }
+        .myorder{
+            display: flex;
+            margin: 0 40px;
+            justify-content: space-between;
+            height: 40px;
+            line-height: 40px;
+            span{
+                font-size: 26px;
+                color: #666;
+            }
+        }
+        .line{
+            width: 90%;
+            margin: 20px auto;
+            border-bottom: 2px solid #ececec;
+        }
+
+    }
+    .user_tab_img{
+        margin-bottom:20px;
+    }
+    .loginout{
+        display: block;
+        width: 88%;
+        height: 72px;
+        margin: 52px auto;
+        text-align: center;
+        line-height: 72px;
+        border: 2px solid #ff5541;
+        border-radius: 36px;
+        color: #ff5541;
+        font-size: 26px;
+        background-color: #fff;
+    }
+}

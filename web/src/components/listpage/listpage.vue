@@ -4,7 +4,7 @@
            <input type="text" placeholder="搜索品类/单品/风格">
         </div>
         <main class="listMain">
-            <div>
+            <div class="listMain_l">
                 <div class="blankBox"></div>
                 <ul class="listNav">
                     <li>
@@ -31,19 +31,24 @@
                 <router-view></router-view>
             </div>
         </main>
-       <footer class="listFoot"><h1>底部</h1></footer>
+       <!-- <footer class="listFoot"><h1>底部</h1></footer> -->
+       <bottoms></bottoms>
    </div>
 </template>
 
 <script>
     import '../../common/common.scss'
     import './listNav/listNav.scss'
+    import bottoms from '../bottomnav/bottomnav.vue'
    export default{
        data(){
            return{
                text:'这是列表组件',
            }
        },
+       components:{
+            bottoms
+        },
        methods:{
            getmsg(){
                this.$store.dispatch('getmsg_get',{path:'product/',msg:{houseOwner:'Kemo'}});

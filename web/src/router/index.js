@@ -6,15 +6,22 @@ import Register from '../components/register/register'
 import HomePage from '../components/homePage/homePage'
 import Detail from '../components/detail/detail'
 import ListPage from '../components/listPage/listPage'
+import User from '../components/user/user'
 
 import category from '../components/listpage/category/category.vue'
 import style from '../components/listpage/style/style.vue'
 import space from '../components/listpage/space/space.vue'
-import categoryList from '../components/listpage/category/categoryList.vue'
-import styleList from '../components/listpage/style/styleList.vue'
-import spaceList from '../components/listpage/space/spaceList.vue'
+
+import categoryList_LR from '../components/listpage/category/categoryList_LR.vue'
+import categoryList_DR from '../components/listpage/category/categoryList_DR.vue'
+
+import styleList_beds from '../components/listpage/style/styleList_beds.vue'
+import styleList_storage from '../components/listpage/style/styleList_storage.vue'
+
+import spaceList_beds from '../components/listpage/space/spaceList_beds.vue'
+import spaceList_storage from '../components/listpage/space/spaceList_storage.vue'
+
 import lives from '../components/lives/lives.vue'
-import lives_style from '../components/lives/lives_style.vue'
 
 Vue.use(VueRouter);
 
@@ -54,29 +61,45 @@ const router = new VueRouter({
                ]
            },
            {
-               path: '/categoryList',
-               name: 'categoryList',
-               component: categoryList,
+               path: '/categoryList_LR',
+               name: 'categoryList_LR',
+               component: categoryList_LR,
            },
            {
-               path: '/spaceList',
-               name: 'spaceList',
-               component: spaceList,
+               path: '/categoryList_DR',
+               name: 'categoryList_DR',
+               component: categoryList_DR,
            },
            {
-               path: '/styleList',
-               name: 'styleList',
-               component: styleList,
+               path: '/spaceList_beds',
+               name: 'spaceList_beds',
+               component: spaceList_beds,
+           },
+           {
+               path: '/spaceList_storage',
+               name: 'spaceList_storage',
+               component: spaceList_storage,
+           },
+           {
+               path: '/styleList_beds',
+               name: 'styleList_beds',
+               component: styleList_beds,
+           },
+           {
+               path: '/styleList_storage',
+               name: 'styleList_storage',
+               component: styleList_storage,
            },
            {
                path: '/lives',
                name: 'lives',
-               component: lives,
-               children:[
-                   {path:'lives_style',name:'lives_style',component:lives_style}
-               ]
+               component: lives
            },
-
+           {
+               path:'/User',
+               name:'User',
+               component:User
+           }
        ]
 })
 
