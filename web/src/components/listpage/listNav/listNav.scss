@@ -21,7 +21,7 @@ html,body{height: 100%;}
     .listMain{
         flex:1;
         display: flex;
-        // overflow-x:hidden;
+        overflow-x:hidden;
         .listMain_l{
             width: 2.026667rem;
             height: 100%;
@@ -67,7 +67,7 @@ html,body{height: 100%;}
             }
         }
         .list_img{
-            flex:1;
+            // flex:1;
             display:flex;
             height: 100%;
             flex-direction: column;
@@ -78,9 +78,5 @@ html,body{height: 100%;}
                 }
             }
         }
-    }
-    .listFoot{
-        height:1.306667rem;
-        border-top:.013333rem solid #666;
     }
 }

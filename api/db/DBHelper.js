@@ -2,10 +2,10 @@ var mysql = require('mysql');
 
 var db = mysql.createPool({
     connectionLimit: 10,
-    host: "localhost",//ip地址
+    host: "10.3.136.41",//ip地址
     user: 'root',
     password: '',
-    database: '11team'//数据库名字
+    database: 'zaijia'//数据库名字
 })
 
 

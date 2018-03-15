@@ -105,7 +105,7 @@
 </template>
 
 <script>
-    import '../../common/common.scss'
+
     import './lives.scss'
     import bottoms from '../bottomnav/bottomnav.vue'
     export default {

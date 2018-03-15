@@ -16,7 +16,6 @@
             <li><img src="http://localhost:1111/src/assets/img/style/neo_chinese.png" alt=""></li>
             <li><img src="http://localhost:1111/src/assets/img/style/traditional.png" alt=""></li>
             <li><img src="http://localhost:1111/src/assets/img/style/europe_style.png" alt=""></li>
-            <li><img src="http://localhost:1111/src/assets/img/style/household_goods.png" alt=""></li>
             <li><img src="http://localhost:1111/src/assets/img/style/american_pastoral.png" alt=""></li>
             <li><img src="http://localhost:1111/src/assets/img/style/children.png" alt=""></li>
         </ul>

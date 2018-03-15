@@ -41,29 +41,8 @@
     import './listNav/listNav.scss'
     import bottoms from '../bottomnav/bottomnav.vue'
    export default{
-       data(){
-           return{
-               text:'这是列表组件',
-           }
-       },
        components:{
             bottoms
-        },
-       methods:{
-           getmsg(){
-               this.$store.dispatch('getmsg_get',{path:'product/',msg:{houseOwner:'Kemo'}});
-           },
-           postmsg(){
-               this.$store.dispatch('getmsg_post',{path:'product',msg:{houseOwner:'Kemo'}});
-           }
-       },
-       computed:{
-           get_msg:{
-               get:function(){
-                   console.log(11555);
-                   return this.$store.getters.getmsg_get;
-               }
-           }
-       }
+        }
    }
 </script>

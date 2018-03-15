@@ -4,19 +4,19 @@
             <router-link to="/ListPage">
                 <span>〈</span>
             </router-link>
-            <h3>{{dataset[0].category}}</h3>
+            <h3>{{category}}</h3>
         </div>
         <div class="sort_L">
             <span>默认</span>
-            <span>价格</span>
+            <span @click="tall">价格</span>
             <span>筛选</span>
         </div>
         <ul class="goodslist_L">
-            <li v-for="(obj,idx) in dataset">
-                <img src="http://localhost:1111/src/assets/img/listIMG/sofa/sofa01.jpg">
-                <h4>{{obj.name}}</h4>
-                <p>{{obj.description}}</p>
-                <span>￥{{obj.price}}</span>
+            <li v-for="(obj,idx) in dataset"  v-if="obj.Category == category">
+                <img :src="'http://localhost:1111/src/assets/productimg/'+obj.Img1">
+                <h4>{{obj.Title}}</h4>
+                <p>{{obj.Describe}}</p>
+                <span>￥{{obj.Price}}</span>
             </li>
         </ul>
         <spinner v-if="show"></spinner>
@@ -30,9 +30,16 @@
 
     export default {
         data(){
-            return{
+             return{
                 dataset:[],
-                show:false
+                show:false,
+                config:{
+                    api:'http://localhost:1200/listpage/',
+                    api2:'http://localhost:1200/listTall/',
+                    api3:'http://localhost:1200/listDescend/',
+                    cols:['pID']
+                },
+                category:'椅凳'
             }
         },
         components:{
@@ -40,11 +47,20 @@
         },
         mounted(){
             this.show =true;
-            http.get('http://localhost:1201/listpage/').then((res)=>{
+            http.get(this.config.api).then((res)=>{
                 this.dataset = res.data.data.results
                 this.show =false
-                // console.log(this.dataset[0].category)
             })
+        },
+        methods:{
+            tall(){
+                this.show =true;
+                http.get(this.config.api3).then((res)=>{
+                    this.dataset = res.data.data.results
+                    this.show =false
+                })
+            },
+            
         }
     }
 </script>
