@@ -1,11 +1,7 @@
 <template>
    <div class="container" id="DetailPage">
       <article id="carousel_detail">
-          <div><img src="~IMG/sofa1.jpg"/></div>
-          <div><img src="~IMG/sofa2.jpg"/></div>
-          <div><img src="~IMG/sofa3.jpg"/></div>
-          <div><img src="~IMG/sofa4.jpg"/></div>
-          <div><img src="~IMG/sofa5.jpg"/></div>
+          <div v-for="(val,key) in GoodsData" v-if="key.indexOf('Img')>-1"><img :src="'./src/assets/productimg/'+val"/></div>
       </article>
       <aside id="safeguard">
           <span><i class="fa fa-check-circle"></i> 七天无理由退换货</span>
@@ -13,15 +9,14 @@
           <span><i class="fa fa-check-circle"></i> 保价180天</span>
       </aside>
       <main>
-        
       <article id="details">
-          <h3 class="title">贝洛餐椅</h3>
-          <p class="desc">意大利原装进口，头层牛皮</p>
-          <p class='price'>$3243</p>
+          <h3 class="title">{{this.GoodsData.Title}}</h3>
+          <p class="desc">{{this.GoodsData.Describe}}</p>
+          <p class='price'>￥ {{this.GoodsData.Price}}</p>
           <div class="size">
-            <span>单人款</span>
-            <span>双人款</span>
-            <span>多功能款</span>
+            <span @click="Getsize($event)" class="sel_size">单人款</span>
+            <span @click="Getsize($event)">双人款</span>
+            <span @click="Getsize($event)">多功能款</span>
           </div>
           <div class="pay">
             <i class="fa fa-cc-visa"></i>
@@ -29,35 +24,26 @@
             <i class="fa fa-google-wallet"></i>
           </div>
           <h3 class="base"> <i class="fa fa-tags"></i> 商品基础信息</h3>
-          <p class="base_det"><i class="fa fa-dot-circle-o"></i><i class='base_'>商品风格</i><span>现代简约</span></p>
-          <p class="base_det"><i class="fa fa-dot-circle-o"></i><i class="base_">主材</i><span>头层牛皮</span></p>
-          <p class="base_det"><i class="fa fa-dot-circle-o"></i><i class="base_">交货期</i><span>5-9天</span></p>
+          <p class="base_det"><i class="fa fa-dot-circle-o"></i><i class='base_'>商品风格</i><span>{{this.GoodsData.Style}}</span></p>
+          <p class="base_det"><i class="fa fa-dot-circle-o"></i><i class="base_">主材</i><span>{{this.GoodsData.Material}}</span></p>
+          <p class="base_det"><i class="fa fa-dot-circle-o"></i><i class="base_">交货期</i><span>{{this.GoodsData.Transport}}~{{2+(this.GoodsData.Transport*1)}}天</span></p>
       </article>
       <article id="showGoods">
           <p><i class="fa fa-amazon"></i> 商品详情</p>
           <div>
-            <img src="~IMG/details/detail1.jpg"/>
-            <img src="~IMG/details/detail2.jpg"/>
-            <img src="~IMG/details/detail3.jpg"/>
-            <img src="~IMG/details/detail4.jpg"/>
-            <img src="~IMG/details/detail5.jpg"/>
-            <img src="~IMG/details/detail6.jpg"/>
-            <img src="~IMG/details/detail7.jpg"/>
-            <img src="~IMG/details/detail8.jpg"/>
-            <img src="~IMG/details/detail9.jpg"/>
-            <img src="~IMG/details/detail10.jpg"/>
-            <img src="~IMG/details/detail11.jpg"/>
-            <img src="~IMG/details/detail12.jpg"/>
+            <img :src="'./src/assets/images/details/'+item" v-for="item in DetailSrc"/>
           </div>
       </article>
+      <article id="buy">
+          <div><span>立即购买</span><span>加入购物车</span></div>
+      </article>
       </main> 
-      <bottoms></bottoms>
    </div>
 </template>
 
 <script>
-  import bottoms from '../bottomnav/bottomnav.vue';
   import "./detail.scss";
+  import http from "../../httpClient/httpClient.js";
   jQuery(($)=>{
     $('#carousel_detail').slick({
       autoplay:true,
@@ -71,16 +57,28 @@
     $('#carousel_detail button').remove();
   })
    export default{
+      mounted:function(){
+        http.get('Detail',{pID:this.$route.params.pID}).then((result)=>{
+                this.GoodsData=result.data.data.results[0];
+              });
+      },
        data(){
            return{
-               text:'这是详情组件',
+               GoodsData:[],
+               size:"单人款",
+               DetailSrc:["detail1.jpg","detail2.jpg","detail3.jpg","detail4.jpg","detail5.jpg","detail6.jpg","detail7.jpg","detail8.jpg","detail9.jpg","detail10.jpg","detail11.jpg","detail12.jpg"]
            }
        },
        methods:{
-          
+          Getsize(event){
+            this.size=event.target.innerText;
+            console.log(event.target)
+            event.target.classList.add('sel_size');
+
+          }
        },
        components:{
-        bottoms
+        
        },
        computed:{
            
