@@ -46,25 +46,13 @@
                 <li>
                     <div class="bcar">
                         <i>i</i>
-                        <p>代付款</p>
+                        <p><router-link to="/myorder">代付款</router-link></p>
                     </div>
                 </li>
                 <li>
                     <div class="scang">
                         <i>i</i>
-                        <p>待收货</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="lquan">
-                        <i>i</i>
-                        <p>待评价</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="fxiang">
-                        <i>i</i>
-                        <p>退换/售后</p>
+                        <p><router-link to="/myorder2">待收货</router-link></p>
                     </div>
                 </li>
             </ul>
@@ -73,16 +61,9 @@
         <div class="user_tab_img">
             <img src="../../assets/user_tab_img.jpg" />
         </div>
-        <!-- <div class="loginout">退出当前账号</div> -->
-        <button class="loginout">退出当前账号</button>
+        <button class="loginout" v-on:click="exit">退出当前账号</button>
 
         <bottoms></bottoms>
-
-<!--         <h1>{{text}}</h1>
-        <p>{{get_msg}}</p>
-        <p></p>
-        <button @click='getmsg'>get请求点我</button>
-        <button @click="postmsg">post请求点我</button> -->
 
     </div>
 </template>
@@ -93,27 +74,34 @@
     export default{
         data(){
             return{
-                text:'这是用户组件',
-                phonenumber:'13212341234'
+                phonenumber:''
             }
         },
         components:{
             bottoms
         },
-        methods:{
-            getmsg(){
-                this.$store.dispatch('getmsg_get',{path:'product/',msg:{houseOwner:'Kemo'}});
-            }, 
-            postmsg(){
-                this.$store.dispatch('getmsg_post',{path:'product',msg:{houseOwner:'Kemo'}});
+        mounted(){
+            try{
+                var username = JSON.parse(localStorage.getItem("data")).username;
+                this.phonenumber = username;
+            }catch(err){
+                console.log(err)
+            }
+            var username = window.localStorage.getItem('data')
+            if(!username){
+                this.$router.push('/Login');
             }
         },
-        computed:{
-            get_msg:{
-                get:function(){
-                    console.log(11555);
-                    return this.$store.getters.getmsg_get;
-                }
+        methods:{
+            exit(){
+                localStorage.removeItem('data');
+                this.username = '';
+
+                setTimeout(function(){
+                      this.$router.push('/Login')
+                  }.bind(this),1000)
+
+                return;
             }
         }
     }

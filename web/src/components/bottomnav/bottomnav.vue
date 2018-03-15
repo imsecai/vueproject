@@ -8,7 +8,7 @@
             <i>i</i>
             分类
         </router-link>
-        <router-link :to="{name:'User'}">
+        <router-link :to="{name:'lives'}">
             <i>i</i>
             生活家
         </router-link>

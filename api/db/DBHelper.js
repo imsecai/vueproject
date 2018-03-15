@@ -5,17 +5,17 @@ var db = mysql.createPool({
     host: "localhost",//ip地址
     user: 'root',
     password: '',
-    database: 'minsu'//数据库名字
+    database: 'zaijia'//数据库名字
 })
 
 
 module.exports = {
     select: function(_sql, _callback){
         db.query(_sql, function(error, results,fields){
-           console.log(results);
-            if(error || results.length == 0){
+           // console.log(results);
+            if(error){
                 _callback({status: false, error: error})
-            }else if(results.length > 0){
+            }else{
                _callback({status: true, data: {results}});
             }
            
@@ -24,7 +24,7 @@ module.exports = {
     },
     insert: function(_sql,_sql1,_callback){
         db.query(_sql,_sql1, function(error, results,fields){
-            console.log(error,results);
+            // console.log(error,results);
             if(error){
                 _callback({status: false, error: error})
             }else{
@@ -34,20 +34,20 @@ module.exports = {
     },
     delete: function(_sql, _callback){
         db.query(_sql, function(error, results,fields){
-            console.log(results);
-            if(error || results.length == 0){
+            // console.log(results);
+            if(error){
                 _callback({status: false, error: error})
-            }else if(results.length > 0){
+            }else{
                 _callback({status: true, data: {results}});
             }
         })
     },
     update: function(_sql, _callback){
         db.query(_sql, function(error, results,fields){
-            console.log(results);
-            if(error || results.length == 0){
+            // console.log(results);
+            if(error){
                 _callback({status: false, error: error})
-            }else if(results.length > 0){
+            }else{
                 _callback({status: true, data: {results}});
             }
         })

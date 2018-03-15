@@ -6,6 +6,7 @@ var db = require('../db/db');
 
 var path = require('path');
 var loginPost = require('./login/login');
+var myordePost = require('./myorder/myorder')
 
 module.exports = {
     start:function(port){
@@ -25,7 +26,8 @@ module.exports = {
             }
         });  
 
-        loginPost.userPost(app,db);           
+        loginPost.userPost(app,db);
+        myordePost.myorderListPost(app,db);           
         // app.listen(port);
 
         app.listen(port,function(){

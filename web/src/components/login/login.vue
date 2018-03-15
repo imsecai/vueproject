@@ -53,7 +53,8 @@
                 var password = this.password;
                 if(username == '' || password == ''){  
                     this.tishi = '账号或密码不能为空'
-                    this.showTishi = true
+                    this.showTishi = true;
+                    this.show = false;
                     return;  
                 }
                 http.post('Login',{username:username,password:password}).then((res)=>{
@@ -66,11 +67,12 @@
                         }
                         localStorage.setItem('data',JSON.stringify(obj));
                         this.$router.push('/User');
-                        this.show = false;
+                        // this.show = false;
                         return;
                     }else{
                         this.tishi = '手机号码不正确';
                         this.showTishi = true;
+                        this.show = false;
                     }
                 })
             },

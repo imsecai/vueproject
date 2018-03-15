@@ -19,7 +19,7 @@
         <div class="tips">
             <span class="login" v-on:click="gologin">快速登录</span>
         </div>
-
+        <spinner v-if="show"></spinner>
     </div>
 </template>
 
@@ -27,6 +27,7 @@
     import './register.scss'
     import axios from 'axios'
     import http from '../../httpClient/httpClient'
+    import spinner from '../spinner/spinner.vue'
     export default{
         data(){
             return{
@@ -57,11 +58,13 @@
                 })
             },
             register(){
+                this.show = true;
                 var username = this.username;
                 var password = this.password;
                 if(username == '' || password == ''){  
                     this.tishi = '账号或密码不能为空'
                     this.showTishi = true
+                    this.show = false;
                     return;  
                 }
                 http.post('zcUsername',{username:username,password:password}).then((res)=>{
@@ -72,6 +75,8 @@
                     localStorage.setItem('data',JSON.stringify(obj));
                     // this.$router.go(-1) //go方法回跳回前一个页面
                     this.$router.push('/User');
+                    // this.show = false;
+                    // return;
                 })
             },
             gouser(){
