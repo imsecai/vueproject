@@ -1,5 +1,6 @@
 <template>
    <div class="container" id="DetailPage">
+    <div id="slide">
       <article id="carousel_detail">
           <div v-for="(val,key) in GoodsData" v-if="key.indexOf('Img')>-1"><img :src="'./src/assets/productimg/'+val"/></div>
       </article>
@@ -9,35 +10,36 @@
           <span><i class="fa fa-check-circle"></i> 保价180天</span>
       </aside>
       <main>
-      <article id="details">
-          <h3 class="title">{{this.GoodsData.Title}}</h3>
-          <p class="desc">{{this.GoodsData.Describe}}</p>
-          <p class='price'>￥ {{this.GoodsData.Price}}</p>
-          <div class="size">
-            <span @click="Getsize($event)" class="sel_size">单人款</span>
-            <span @click="Getsize($event)">双人款</span>
-            <span @click="Getsize($event)">多功能款</span>
-          </div>
-          <div class="pay">
-            <i class="fa fa-cc-visa"></i>
-            <i class="fa fa-cc-paypal"></i>
-            <i class="fa fa-google-wallet"></i>
-          </div>
-          <h3 class="base"> <i class="fa fa-tags"></i> 商品基础信息</h3>
-          <p class="base_det"><i class="fa fa-dot-circle-o"></i><i class='base_'>商品风格</i><span>{{this.GoodsData.Style}}</span></p>
-          <p class="base_det"><i class="fa fa-dot-circle-o"></i><i class="base_">主材</i><span>{{this.GoodsData.Material}}</span></p>
-          <p class="base_det"><i class="fa fa-dot-circle-o"></i><i class="base_">交货期</i><span>{{this.GoodsData.Transport}}~{{2+(this.GoodsData.Transport*1)}}天</span></p>
-      </article>
-      <article id="showGoods">
-          <p><i class="fa fa-amazon"></i> 商品详情</p>
-          <div>
-            <img :src="'./src/assets/images/details/'+item" v-for="item in DetailSrc"/>
-          </div>
-      </article>
-      <article id="buy">
-          <div><span>立即购买</span><span>加入购物车</span></div>
-      </article>
-      </main> 
+         <article id="details">
+            <h3 class="title">{{this.GoodsData.Title}}</h3>
+            <p class="desc">{{this.GoodsData.Describe}}</p>
+            <p class='price'>￥ {{this.GoodsData.Price}}</p>
+            <div class="size">
+              <span class="chose sel_size" @click="Getsize($event)">单人款</span>
+              <span class="chose" @click="Getsize($event)">双人款</span>
+              <span class="chose" @click="Getsize($event)">多功能款</span>
+            </div>
+            <div class="pay">
+              <i class="fa fa-cc-visa"></i>
+              <i class="fa fa-cc-paypal"></i>
+              <i class="fa fa-google-wallet"></i>
+            </div>
+            <h3 class="base"> <i class="fa fa-tags"></i> 商品基础信息</h3>
+            <p class="base_det"><i class="fa fa-dot-circle-o"></i><i class='base_'>商品风格</i><span>{{this.GoodsData.Style}}</span></p>
+            <p class="base_det"><i class="fa fa-dot-circle-o"></i><i class="base_">主材</i><span>{{this.GoodsData.Material}}</span></p>
+            <p class="base_det"><i class="fa fa-dot-circle-o"></i><i class="base_">交货期</i><span>{{this.GoodsData.Transport}}~{{2+(this.GoodsData.Transport*1)}}天</span></p>
+         </article>
+         <article id="showGoods">
+             <p><i class="fa fa-amazon"></i> 商品详情</p>
+             <div>
+               <img :src="'./src/assets/images/details/'+item" v-for="item in DetailSrc"/>
+             </div>
+         </article>     
+      </main>
+    </div>
+      <footer id="buynow">
+          <span>立即购买</span><span>加入购物车</span>
+      </footer> 
    </div>
 </template>
 
@@ -72,9 +74,11 @@
        methods:{
           Getsize(event){
             this.size=event.target.innerText;
-            console.log(event.target)
+            var spans=document.querySelectorAll('.chose');
+            spans.forEach((item)=>{
+              item.classList.remove("sel_size");
+            })
             event.target.classList.add('sel_size');
-
           }
        },
        components:{

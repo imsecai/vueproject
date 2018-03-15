@@ -2,7 +2,11 @@ body,html{
     height: 100%;
 }
 #app{height: 100%;}
-#DetailPage{display:flex;background:#FAFBFC;flex-direction: column;font-size:26px;
+#DetailPage{display:flex;background:#FAFBFC;flex-direction: column;font-size:26px;height:100%;
+    #slide{
+        flex:1;
+        overflow-y:auto;
+    }
     #carousel_detail{overflow:hidden;position:relative;
         img{height:9.6rem;}
         .slick-dots{height: 0.066667rem;position:absolute;left:50%;transform:translateX(-50%);bottom:4%;
@@ -37,9 +41,9 @@ body,html{
         #showGoods{
             p{height: 1.333333rem;line-height: 1.333333rem;font-size:34px;font-weight:600;.fa{color:#99CC33;}}
             img{width:100%;}
-        }
-        #buy{margin-bottom: 1.306667rem;height:1.333333rem;
-            display:flex;justify-content: space-between;text-align:center;
-        }
+        }       
+    }
+    #buynow{height:1.1rem;display:flex;justify-content: space-between;text-align:center;
+            span{flex:1;line-height: 1.1rem;font-size:28px;}
     }
 }
