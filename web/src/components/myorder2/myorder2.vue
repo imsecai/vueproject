@@ -42,12 +42,9 @@
         },
         mounted(){
             var oname = JSON.parse(localStorage.getItem("data")).user_id;
-            console.log(oname);
             Http.post('myorderList',{user_id:oname}).then((res)=>{
-                console.log(res)
                 try{
                   this.dataset =  res.data.data.results
-                  console.log(res.data.data.results)
                 }catch(err){
                    console.log(err)
                 }

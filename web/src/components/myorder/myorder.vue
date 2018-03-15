@@ -49,16 +49,12 @@
         },
         mounted(){
             var oname = JSON.parse(localStorage.getItem("data")).user_id;
-            console.log(oname);
             Http.post('myorderList',{user_id:oname}).then((res)=>{
-                console.log(res)
                 try{
                     this.dataset = res.data.data.results;
                     for(let i=0;i<this.dataset.length;i++){
                         this.totalPrice += this.dataset[i].Price * this.dataset[i].Qty;
                     }
-                  console.log(this.totalPrice)
-                  console.log(res.data.data.results)
                 }catch(err){
                    console.log(err)
                 }
