@@ -5,6 +5,8 @@ var db = require('../db/db');
     db = db.mysql;
 
 var path = require('path');
+// var Login = require('./login/Login');
+var listpage = require('./listPage/listPage.js')
 var loginPost = require('./login/login');
 var myordePost = require('./myorder/myorder')
 
@@ -13,6 +15,8 @@ module.exports = {
         app.use(bodyParser.urlencoded({extended:false}));
         // app.use(bodyParser.json());
         app.use(express.static(path.join(__dirname, '/')));
+
+
 
         app.all('*', function(req, res, next) {
             res.header("Access-Control-Allow-Origin", "*");
@@ -28,6 +32,8 @@ module.exports = {
 
         loginPost.userPost(app,db);
         myordePost.myorderListPost(app,db);           
+        // app.listen(port);
+        listpage.register(app,db)
         // app.listen(port);
 
         app.listen(port,function(){
