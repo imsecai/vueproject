@@ -20,9 +20,13 @@ const Http = {
    get:(url,query)=> new Promise((resolve,reject)=>{
        //new Promise 是为进行在vue store里面进行异步传值
        var path = getUrl(url);
-       console.log('get222',path,query);
+       console.log('get_ajax_ready',path,query);
        //get请求
-       axios.get(path,{params:query}).then((res1,error)=>{
+       axios.get(
+        path,
+        {params:query}
+      ).then((res1,error)=>{
+        //需要验证？
            if(res1){
                resolve (res1);
            }else{

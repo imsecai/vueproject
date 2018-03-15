@@ -2,13 +2,13 @@ body,html{
     height: 100%;
 }
 #app{height: 100%;}
-.container{
+#homepage{
     background:#F2F2F2;
     height: 100%;
     display: flex;
     flex-direction: column;
-    font-size:0.373333rem;
-}
+    // font-size:0.373333rem;
+
 #header{
     p{height:1.173333rem;}
 }
@@ -16,10 +16,10 @@ body,html{
 main{
     flex:1;
     overflow-y:auto;
-    #carousel{height:5.093333rem;position:relative;overflow:hidden;
+    #carousel_home{height:5.093333rem;position:relative;overflow:hidden;
         img{width: 100%;}
-        .slick-dots{width:5.4rem;height: 0.066667rem;position:absolute;left:50%;transform:translateX(-50%);bottom:4%;
-            li{margin:0 0.4rem;float: left;width:0.266667rem;height:0.066667rem;background:white;}
+        .slick-dots{height: 0.066667rem;position:absolute;left:50%;transform:translateX(-50%);bottom:4%;
+            li{margin:0 0.3rem;float: left;width:0.266667rem;height:0.066667rem;background:white;}
             .slick-active{background:black;}
         }
     }
@@ -62,10 +62,11 @@ main{
     #goodsShow2{
         @extend #goodsShow1;
     }
-    #end{height:1.1rem;background:#FE4365;text-align:center;color:white;font-weight:100;.fa{color:black;}border-radius:0.23rem;}
+    #end{height:1.1rem;background:#FE4365;text-align:center;color:white;font-weight:100;font-size:26px;.fa{color:black;}border-radius:0.23rem;margin-bottom: 1.306667rem;}
 }
 /*-----------footer--------------*/
 #footer{
     
     p{height:1.306667rem;}
+}
 }
