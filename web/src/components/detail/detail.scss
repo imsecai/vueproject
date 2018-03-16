@@ -3,6 +3,7 @@ body,html{
 }
 #app{height: 100%;}
 #DetailPage{display:flex;background:#FAFBFC;flex-direction: column;font-size:26px;height:100%;
+    #pre{position:absolute;left: 0.3rem;top:0.4rem;z-index:4;font-size:50px;}
     #slide{
         flex:1;
         overflow-y:auto;
