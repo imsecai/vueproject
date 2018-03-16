@@ -13,26 +13,80 @@
             <p>订单提交成功 !</p>
         </div>
         <div class="paymentInf">
-            <p class="payNum">订单号</p>
-            <p>订单金额</p>
+            <p class="payNum">订单号 : 0014589631455</p>
+            <p class="payMoney">订单金额 : ￥ {{total}}</p>
 
         </div>
         <div class="payMethods">
             <p>支付方式</p>
-            <p><i class="ifont izhifubao"> </i> <span>支付宝</span></p>
-            <p><i class="ifont iweixinzhifu"> </i> <span>微信支付</span></p>
+            <p><span><i class="ifont izhifubao"></i> 支付宝</span>
+            <span class="select" v-bind:class="{active:isActive}"
+             @click="selectZhi"></span></p>
+            <p><span><i class="ifont iweixinzhifu"> </i> 微信支付</span>
+            <span class="select" v-bind:class="{active:isActive1}"
+            @click="selectWei"></span></p>
         </div>
 
     </div>
     <div class="footer">
         立即支付
     </div>
+    <spinner v-if="show"></spinner>
   </div>
 </template>
 
 <script>
 import './payment.scss'
+import Http from "../../../httpClient/httpClient";
+import spinner from "../../spinner/spinner.vue"
 export default {
+    data(){
+        return{
+            isActive:false,
+            isActive1:false,
+            tip:0,
+            dataset:[],
+            total:0,
+            show:false
+
+        }
+    },
+    methods:{
+        selectZhi(){
+            if(this.tip == 0){
+                this.isActive = true;
+                this.tip = 1;
+            }else{
+                this.isActive = false;
+                this.tip = 0;
+            }
+        },
+        selectWei(){
+             if(this.tip == 0){
+                this.isActive1 = true;
+                this.tip = 1;
+            }else{
+                this.isActive1 = false;
+                this.tip = 0;
+            }
+        }
+    },
+    mounted(){
+        this.show = true;
+        Http.post('getBuyList').then((res)=>{
+                this.dataset = res.data.getBuyList;
+                let n = 0;
+                this.dataset.forEach((item)=>{
+                    n += item.Price * item.Qty;
+                })
+                this.total = n;
+            })
+        this.show = false;
+    },
+    components:{
+        spinner,
+    }
+
   
 }
 </script>

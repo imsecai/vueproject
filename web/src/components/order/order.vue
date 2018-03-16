@@ -9,20 +9,20 @@
 
         </div>
         <div class="main">
-            <div class="address">
+            <div class="address" >
                 <router-link to="selectAdd">
-                    <p class="person">收货人:</p>
+                    <p class="person"> 收货人: <span v-for = "val in selectAddSet[0]">{{val}}</span></p>
                     <p class="jiantou">&gt;</p>
-                    <p class="person-add">重庆</p>
+                    
                 </router-link>
             </div>
             <ul class="order-list">
                 <li v-for="(obj,idx) in dataset">
-                    <div class="img"><img :src="obj.imgurl" alt=""></div>
+                    <div class="img"><img :src="obj.Img1" alt=""></div>
                     <div class="font">
-                        <p class="name">{{obj.name}}</p>
-                        <p class="params">{{obj.size}};{{obj.meterials}};{{obj.color}}</p>
-                        <p class="price-qty"><span>￥{{obj.price}}</span><span class="qty">&times; {{obj.qty}}</span></p>
+                        <p class="name">{{obj.Title}}</p>
+                        <p class="params">{{obj.Size}};{{obj.MAterial}}</p>
+                        <p class="price-qty"><span>￥{{obj.Price}}</span><span class="qty">&times; {{obj.Qty}}</span></p>
                     </div>
                 </li>
 
@@ -36,7 +36,7 @@
             </div>
         </div>
         <div class="footer">
-            <div class="total">总计：￥</div>
+            <div class="total">总计：￥ {{total1}}</div>
             <div class="submit">
             <router-link to="/payment">提交订单</router-link>
             </div>
@@ -48,15 +48,23 @@
 <script>
     import "./order.scss";
     import spinner from '../spinner/spinner.vue'
-    import http from 'axios';
+    import axios from 'axios';
+    import Http from '../../httpClient/httpClient'
+    
     export default {
         data(){
             return {
                 dataset:[],
-                show : false
+                show : false,
+                selectAddSet:[],
+                total1:''
+
+    
             }
         },
         methods:{
+            
+            
 
         },
         components:{
@@ -64,11 +72,24 @@
         },
         mounted(){
             this.show = true;
-            http.get('http://localhost:8080/shopCarApi/shopCarApi.json').then((res)=>{
-                this.dataset = res.data;
+            Http.post('getBuyList').then((res)=>{
+                this.dataset = res.data.getBuyList;
+                console.log(res)
+            })
+            Http.post('selectAdd').then((res)=>{
+                this.selectAddSet = res.data.selectAdd;
+                delete this.selectAddSet[0].Addressid;
             })
             this.show = false;
-
+        },
+        updated(){
+             let n = 0;
+            this.dataset.forEach((item)=>{
+                n += item.Price * item.Qty;
+                
+            })
+            this.total1 = n;
+            console.log(this.total1)
         }
     
     }

@@ -9,8 +9,13 @@
         </div>
 
       <div class="main">
-        <div>
-        </div>
+        <ul class="selectAdd-list">
+            <li v-for="(obj,idx) in selectAddSet" @click="newAdd(obj.Addressid)">
+                <p class="nickname_phone">{{obj.Nickname}} {{obj.Phone}}</p>
+                <p class="address">{{obj.Pro}} {{obj.City}} {{obj.County}} {{obj.Detadd}}</p>
+                <i class="del" @click="delAdd(obj.Addressid,idx)">-</i>
+            </li>
+        </ul>
       </div>
       
       <router-link to="addAdd">
@@ -24,8 +29,39 @@
 </template>
 
 <script>
-import './selectAdd.scss';
+import './selectAdd.scss'
+import Http from '../../../httpClient/httpClient'
+
 export default {
+    data(){
+        return {
+            selectAddSet:[],
+        }
+    },
+    methods:{
+        delAdd:function(_Addressid,idx){
+            Http.post('delAdd',{Addressid: _Addressid}).then((res)=>{
+                //console.log(res);
+                if(res.status == 200){
+                    this.selectAddSet.splice(idx,1);
+                }
+            })
+        },
+        newAdd:function(_new){
+            Http.post('newAdd',{new:_new}).then((res) =>{
+                console.log(res)
+            })
+        }
+    },
+    mounted(){
+        Http.post('selectAdd').then((res)=>{
+            console.log(res)
+            this.selectAddSet = res.data.selectAdd;
+            // console.log(this.selectAddSet)
+        })
+
+    }
   
 }
 </script>
+

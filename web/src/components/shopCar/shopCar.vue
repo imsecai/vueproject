@@ -12,11 +12,11 @@
             <ul class="shopCar-list">
                 <li v-for="(obj,idx) in dataset">
                     <input type="checkbox" :checked="lis.indexOf(idx) > -1" @click="select(idx)" class="checkbox"/>
-                    <div class="img"><img :src="obj.imgurl" alt="" class="shop-pic"></div>
+                    <div class="img"><img :src="obj.Img1" alt="" class="shop-pic"></div>
                     <div class="font">
-                        <p class="name">{{obj.name}}</p>
-                        <p class="params">{{obj.size}};{{obj.meterials}};{{obj.color}}</p>
-                        <p class="price-qty"><span>￥{{obj.price}}</span><span class="qty">&times; {{obj.qty}}</span></p>
+                        <p class="name">{{obj.Title}}</p>
+                        <p class="params">{{obj.Size}};{{obj.Material}};</p>
+                        <p class="price-qty"><span>￥{{obj.Price}}</span><span class="qty">&times; {{obj.Qty}}</span></p>
                     </div>
                 </li>
             </ul>
@@ -43,7 +43,8 @@
 <script>
     import './shopCar.scss';
     import spinner from '../spinner/spinner.vue'
-    import http from 'axios';
+    import axios from 'axios';
+    import http from '../../httpClient/httpClient'
 
     export default {
         data(){
@@ -64,7 +65,7 @@
                     
                 }
                 this.lis.forEach((item)=>{
-                    this.total += this.dataset[item].price * this.dataset[item].qty;
+                    this.total += this.dataset[item].Price * this.dataset[item].Qty;
                 })
             },
             allSelect:function(){
@@ -78,20 +79,21 @@
                     }
                     let n = 0;
                     this.dataset.forEach(function(item){
-                        n += item.price * item.qty;
+                        n += item.Price * item.Qty;
                     })
                     this.total = n;
                 }
-            }
+            },
+            
         },
         components:{
             spinner
         },
         mounted(){
             this.show = true;
-            http.get('http://localhost:8080/shopCarApi/shopCarApi.json').then((res)=>{
-                console.log(res);
-                this.dataset = res.data;
+            http.post('getBuyList').then((res)=>{
+                this.dataset = res.data.getBuyList;
+                console.log(res)
             })
             this.show = false;
         }

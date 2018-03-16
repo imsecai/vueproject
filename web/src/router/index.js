@@ -12,6 +12,7 @@ import order from "../components/order/order.vue"
 import selectAdd from "../components/order/selectAdd/selectAdd.vue"
 import addAdd from "../components/order/addAdd/addAdd.vue"
 import payment from "../components/order/payment/payment.vue"
+import User from '../components/user/user'
 
 Vue.use(VueRouter);
 
@@ -72,6 +73,11 @@ const router = new VueRouter({
                path:'/payment',
                name:'payment',
                component:payment
+           },
+           {
+               path: '/User',
+               name: 'User',
+               component: User
            }
            
        ]

@@ -5,12 +5,13 @@ var db = require('../db/db');
     db = db.mysql;
 
 var path = require('path');
-// var Login = require('./login/Login');
+var loginPost = require('./login/login');
+var shopPost = require('./shop/shop');
 
 module.exports = {
     start:function(port){
         app.use(bodyParser.urlencoded({extended:false}));
-        app.use(bodyParser.json());
+        // app.use(bodyParser.json());
         app.use(express.static(path.join(__dirname, '/')));
 
         app.all('*', function(req, res, next) {
@@ -25,7 +26,19 @@ module.exports = {
             }
         });  
 
-        // Login.userPost(app,db);           
+        loginPost.userPost(app,db);    
+        shopPost.addressPost(app,db);
+        shopPost.selectAddPost(app,db);   
+        shopPost.delAddPost(app,db);  
+        shopPost.newAddPost(app,db); 
+        shopPost.getBuyList(app,db);
+        shopPost.addQtyPost(app,db); 
+        shopPost.subQtyPost(app,db); 
+        shopPost.delShopsPost(app,db); 
+        
+
+        
+          
         // app.listen(port);
 
         app.listen(port,function(){

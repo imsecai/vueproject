@@ -11,19 +11,22 @@
 
 .dk-spinner-three-bounce.dk-spinner {
     position: absolute;
-    top: 53%;
-    left: 47%;
+/*    top: 53%;
+    left: 47%;*/
+    top:40%;
+    left:40%;
     background-color: none!important;
     z-index: 2099;
     margin: 0 auto;
-    width: 70px;
+    /*width: 70px;*/
+    width:100px;
     text-align: center;    
 }
 
 .dk-spinner-three-bounce div {
     width: 18px;
     height: 18px;
-    background-color: #1ab394;
+    background-color: #fe5a4c;
     border-radius: 100%;
     display: inline-block;
     -webkit-animation: dk-threeBounceDelay 1.4s infinite ease-in-out;

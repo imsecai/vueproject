@@ -11,11 +11,11 @@
             <ul class="manage-list">
                 <li v-for="(obj,idx) in dataset">
                     <input type="checkbox" class="checkbox" :checked="lis.indexOf(idx) > -1" @click="select(idx)"/>
-                    <div class="img"><img :src="obj.imgurl" alt=""></div>
+                    <div class="img"><img :src="obj.Img1" alt=""></div>
                     <div class="qty">
-                        <span class="sub" @click="sub">-</span>
-                        <span class="res">{{ obj.qty }}</span>
-                        <span class="add" @click="add">+</span>
+                        <span class="sub" @click="sub(obj.buyID,idx)">-</span>
+                        <span class="res">{{ obj.Qty }}</span>
+                        <span class="add" @click="add(obj.buyID,idx)">+</span>
                     </div>
                 </li>
             </ul>
@@ -28,15 +28,18 @@
                 <span> 全选</span>
             </div>
             <div class="footer-right">
-                <span class="delete">删除</span>
+                <span class="delete" @click="del">删除</span>
             </div>
         </div>
+        <spinner v-if="show"></spinner>
   </div>
 </template>
 
 <script>
     import manage from "./manage.scss";
-    import http from 'axios';
+    import spinner from "../../spinner/spinner.vue";
+    import axios from 'axios';
+    import http from '../../../httpClient/httpClient'
     export default {
         data(){
             return {
@@ -45,10 +48,13 @@
                 total:0,
                 res:'',
                 show:false,
+                arrIdx:[]
             }
         },
         methods:{
             select:function(idx){
+                this.arrIdx.push(idx)
+                console.log(this.arrIdx)
                 this.total = 0;
                 if(this.lis.indexOf(idx) > -1){
                     this.lis.splice(this.lis.indexOf(idx),1);
@@ -71,23 +77,67 @@
                     }
                     let n = 0;
                     this.dataset.forEach(function(item){
-                        n += item.price * item.qty;
+                        n += item.Price * item.Qty;
                     })
                     this.total = n;
                 }
             },
-            add:function(){
-
+            add:function(_buyID,_idx){
+                
+                http.post('addQty',{buyID:_buyID}).then((res)=>{
+                    
+                    this.dataset[_idx].Qty++;
+                })
             },
-            sub:function(){
+            sub:function(_buyID,_idx){
+                http.post('subQty',{buyID:_buyID}).then((res)=>{
+                    this.dataset[_idx].Qty--;
+                })
+            },
+            del:function(idx){
+                let arrBuyId = [];
+                for(var i=0;i<this.lis.length;i++){
+                    arrBuyId.push(this.dataset[this.lis[i]].buyID);
+                }
+                
+                http.post('delShops',{arrBuyId:arrBuyId}).then((res)=>{
+                    // console.log(res)
+                })
+                var id=[]
+                this.lis.forEach((item,idx)=>{
+                    // console.log('当前索引值',idx)
+                    id.push(this.dataset[item].buyID);
+                    
+                })
+                // id.forEach((item,idx) => {
+                //     this.dataset.splice(this.dataset.indexOf(item),1);
+                // })
+                for(var j=0;j<id.length;j++){
+                    for(var i=0;i<this.dataset.length;i++){
+                        if(this.dataset[i].buyID==id[j]){
+                            console.log(i)
+                            this.dataset.splice(i,1);
+                        }
+                        
+                    }
+                }
+                 this.lis=[];
+                // this.dataset.forEach((item)=>{
+                //     console.log('购物车所有列表',item)
+                // })
                 
             }
         },
         mounted(){
-            http.get('http://localhost:8080/shopCarApi/shopCarApi.json').then((res)=>{
-                console.log(res)
-                this.dataset = res.data;
+            this.show = true;
+            http.post('getBuyList').then((res)=>{
+                // console.log(res)
+                this.dataset = res.data.getBuyList;
             })
+            this.show = false;
+        },
+        components:{
+            spinner,
         }
 
         

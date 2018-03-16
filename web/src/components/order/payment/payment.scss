@@ -51,6 +51,10 @@
             .payNum{
                 border-bottom: .013333rem /* 1/75 */ solid #ccc;
             }
+            .payMoney{
+                font-size: .4rem /* 30/75 */;
+                color: #ff5541;
+            }
         }
         .payMethods{
             background: #fff;
@@ -66,6 +70,7 @@
                     width: .333333rem /* 25/75 */;
                     height: .333333rem /* 25/75 */;
                     font-size: .333333rem /* 25/75 */;
+                    margin-right: .266667rem /* 20/75 */;
                 }
                 .izhifubao{
                     color:#4A90E2;
@@ -74,9 +79,20 @@
                 .iweixinzhifu{
                     color:#58bc58;  
                 }
-                span{
-                    padding-left:20px;
+                display: flex;
+                justify-content: space-between;
+                .select{
+                    align-self: center;
+                    display: inline-block;
+                    width: .4rem /* 30/75 */;
+                    height: .4rem/* 30/75 */;
+                    border-radius: 50%;
+                    border:.013333rem /* 1/75 */ solid #ccc;
                 }
+                .active{
+                    background: #ff5541;
+                }
+                
             }
         }
 
