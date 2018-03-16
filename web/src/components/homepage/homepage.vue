@@ -108,6 +108,9 @@
                 this.bedSrc=result.data.data.results;
               });
       },
+      updated:function(){
+        
+      },
        data(){
            return{
                showSrc:[],

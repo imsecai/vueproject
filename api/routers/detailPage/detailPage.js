@@ -3,7 +3,7 @@ const bp=require('body-parser');
 module.exports={
     register(app){
         app.post("/inbuylist",(req,res)=>{
-            var buyID=req.body.pID;
+            var buyID=req.body.buyID;
             var Qty=req.body.Qty;
             var Title=req.body.Title;
             var Material=req.body.Material;
