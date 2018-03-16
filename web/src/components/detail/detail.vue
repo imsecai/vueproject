@@ -1,5 +1,6 @@
 <template>
    <div class="container" id="DetailPage">
+    <i id="pre" class="fa fa-chevron-circle-left" @click="back"></i>   
     <div id="slide">
       <article id="carousel_detail">
           <div v-for="(val,key) in GoodsData" v-if="key.indexOf('Img')>-1"><img :src="'./src/assets/productimg/'+val"/></div>
@@ -51,7 +52,6 @@
    export default{
       mounted:function(){
         this.pID=this.$route.params.pID;
-        console.log('mounted',this.pID);
         http.get('Detail',{pID:this.pID}).then((result)=>{
                 this.GoodsData=result.data.data.results[0];
               });
@@ -109,6 +109,9 @@
                 http.post('inbuylist',buy).then((res)=>{
                 })
             }
+          },
+          back(){
+            history.back();
           }
        }
    }
