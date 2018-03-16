@@ -38,7 +38,7 @@
       </main>
     </div>
       <footer id="buynow">
-          <span id="tocar" @click="tocar">立即购买 <i class="fa fa-cart-arrow-down"></i></span><span id="incar" >加入购物车 <i class="fa fa-cart-plus"></i></span>
+          <span id="tocar" @click="tocar">立即购买 <i class="fa fa-cart-arrow-down"></i></span><span id="incar" @click="incar">加入购物车 <i class="fa fa-cart-plus"></i></span>
       </footer> 
    </div>
 </template>
@@ -46,18 +46,8 @@
 <script>
   import "./detail.scss";
   import http from "../../httpClient/httpClient.js";
-  jQuery(($)=>{
-    $('#carousel_detail').slick({
-      autoplay:true,
-      autoplaySpeed:2500,
-      arrows:false,
-      mobileFirst:true,
-      speed: 600,
-      slidesToShow: 1,
-      dots:true
-    });
-    $('#carousel_detail button').remove();
-  });
+  import router from "../../router"
+  
    export default{
       mounted:function(){
         this.pID=this.$route.params.pID;
@@ -66,8 +56,22 @@
                 this.GoodsData=result.data.data.results[0];
               });
         http.get('getBuyList').then((res)=>{
-          console.log(res);
+          this.buylist=res.data.data.results;
         })
+      },
+      updated:function(){
+          jQuery(($)=>{
+               $('#carousel_detail').slick({
+                 autoplay:true,
+                 autoplaySpeed:2500,
+                 arrows:false,
+                 mobileFirst:true,
+                 speed: 600,
+                 slidesToShow: 1,
+                 dots:true
+               });
+               $('#carousel_detail button').remove();
+          });
       },
        data(){
            return{
@@ -88,29 +92,24 @@
             event.target.classList.add('sel_size');
           },
           tocar(){
+            this.incar();
+            router.push('/shopCar');
+          },
+          incar(){
             for(var i=0;i<this.buylist.length;i++){
-              if(this.buylist[i].pID == this.pID){
+              if(this.buylist[i].buyID == this.pID){
                 http.post('modifyList',{pID:this.pID}).then((res)=>{
-                  console.log("已修改");
                 })
                 return
               }
             }
             if(i==this.buylist.length){
-               var buy={pID:this.$route.params.pID,Qty:1,Title:this.GoodsData.Title,Material:this.GoodsData.Material,Price:this.GoodsData.Price,Size:this.size,Img1:this.GoodsData.Img1}
+               var buy={buyID:this.$route.params.pID,Qty:1,Title:this.GoodsData.Title,Material:this.GoodsData.Material,Price:this.GoodsData.Price,Size:this.size,Img1:this.GoodsData.Img1}
                 this.buylist.push(buy);
                 http.post('inbuylist',buy).then((res)=>{
-                  console.log('插入信息：',res);
                 })
             }
-            // router.push('shopCar');
-          },
-          // incar(){
-
-          // }
-       },
-       computed:{
-           
+          }
        }
    }
 </script>
