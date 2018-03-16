@@ -41,12 +41,12 @@ const router = new VueRouter({
                component:Register
            },
            {
-               path:'/HomePage',
+               path:'/',
                name:'HomePage',
                component:HomePage,
            },
            {
-               path:'/Detail',
+               path:'/Detail/:pID',
                name:'Detail',
                component:Detail,
            },

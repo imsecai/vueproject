@@ -5,20 +5,12 @@ var db = require('../db/db');
     db = db.mysql;
 
 var path = require('path');
-// var Login = require('./login/Login');
 var listpage = require('./listPage/listPage.js')
 var loginPost = require('./login/login');
-var myordePost = require('./myorder/myorder')
+var myorderPost = require('./myorder/myorder')
 
-module.exports = {
-    start:function(port){
-        app.use(bodyParser.urlencoded({extended:false}));
-        // app.use(bodyParser.json());
-        app.use(express.static(path.join(__dirname, '/')));
-
-
-
-        app.all('*', function(req, res, next) {
+const home=require('./home/home');
+app.all('*', function(req, res, next) {
             res.header("Access-Control-Allow-Origin", "*");
             res.header("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With");
             res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
@@ -28,17 +20,18 @@ module.exports = {
             } else {
                 next();
             }
-        });  
-
-        loginPost.userPost(app,db);
-        myordePost.myorderListPost(app,db);           
-        // app.listen(port);
-        listpage.register(app,db)
-        // app.listen(port);
-
+});
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(express.static(path.join(__dirname, '/')));        
+               
+module.exports = {
+    start:function(port){
+        loginPost.userPost(app,db);           
+        home.register(app);
+        listpage.register(app,db);
+        myorderPost.myorderListPost(app,db);
         app.listen(port,function(){
             console.log('connect success')
         });
-
-   }
+    }
 }

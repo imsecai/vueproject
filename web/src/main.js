@@ -6,6 +6,7 @@ import VueResource from 'vue-resource'
 
 Vue.use(VueResource)
 
+import '../node_modules/font-awesome/css/font-awesome.min.css';
 new Vue({
   el: '#app',
   router,

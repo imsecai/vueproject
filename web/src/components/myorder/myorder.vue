@@ -50,6 +50,8 @@
         mounted(){
             var oname = JSON.parse(localStorage.getItem("data")).user_id;
             Http.post('myorderList',{user_id:oname}).then((res)=>{
+                console.log(666)
+                console.log(res)
                 try{
                     this.dataset = res.data.data.results;
                     for(let i=0;i<this.dataset.length;i++){
