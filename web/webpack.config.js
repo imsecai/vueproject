@@ -61,7 +61,7 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.(png|jpg|gif|woff|svg|ttf|eot)$/,
+        test: /\.(png|jpg|jpeg|gif|eot|ttf|woff|woff2|svg|svgz)(\?.+)?$/,
         loader: 'file-loader',
         options: {
           name: '[name].[ext]?[hash]'
@@ -71,7 +71,8 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.esm.js'
+      'vue$': 'vue/dist/vue.esm.js',
+      'IMG': path.resolve(__dirname, './src/assets/images'),
     },
     extensions: ['*', '.js', '.vue', '.json']
   },
@@ -83,7 +84,15 @@ module.exports = {
   performance: {
     hints: false
   },
-  devtool: '#eval-source-map'
+  devtool: '#eval-source-map',
+  plugins: [  
+  new webpack.ProvidePlugin({  
+    $:"jquery",  
+    jQuery:"jquery",  
+    "windows.jQuery":"jquery"  
+  })  
+]  
+  
 }
 
 if (process.env.NODE_ENV === 'production') {
