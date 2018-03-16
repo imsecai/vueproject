@@ -5,8 +5,11 @@
                 <div class="head_left">
                     <input type="text" placeholder="搜索品类/单品/风格">
                     <div class="buycar">
+                        <router-link to="shopCar">
                         <i class="iconfont icon-gouwuche"></i>
+                        
                         <i class="iconfont icon-shoucang"></i>
+                        </router-link>
                     </div>
                 </div>
             </div>

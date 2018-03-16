@@ -1,0 +1,65 @@
+[
+    {
+        "name": "茶几-1",
+        "imgurl":"./src/img/chaji-1.jpg",
+        "size": "1400*2000*888",
+        "meterials":"红木+桉木",
+        "color":"红色",
+        "price":666,
+        "qty": 2
+    },
+    {
+        "name": "茶几-2",
+        "imgurl": "./src/img/chaji-2.jpg",
+        "size": "400*4422*318",
+        "meterials": "塑料+水泥",
+        "color": "深灰色",
+        "price": 76,
+        "qty": 3
+    },
+    {
+        "name": "茶几-3",
+        "imgurl": "./src/img/chaji-3.jpg",
+        "size": "1000*822*88",
+        "meterials": "钛合金+铝合金",
+        "color": "银色",
+        "price": 166,
+        "qty": 4
+    },
+    {
+        "name": "茶几-4",
+        "imgurl":"./src/img/chaji-4.jpg",
+        "size": "740*102*803",
+        "meterials": "复合板+塑料",
+        "color": "淡蓝色",
+        "price": 466,
+        "qty": 12
+    },
+    {
+        "name": "茶几-5",
+        "imgurl": "./src/img/chaji-4.jpg",
+        "size": "740*102*803",
+        "meterials": "复合板+塑料",
+        "color": "淡蓝色",
+        "price": 86,
+        "qty": 4
+    },
+    {
+        "name": "茶几-6",
+        "imgurl": "./src/img/chaji-4.jpg",
+        "size": "740*102*803",
+        "meterials": "复合板+塑料",
+        "color": "淡蓝色",
+        "price": 600,
+        "qty": 11
+    },
+    {
+        "name": "茶几-7",
+        "imgurl": "./src/img/chaji-4.jpg",
+        "size": "740*102*803",
+        "meterials": "复合板+塑料",
+        "color": "淡蓝色",
+        "price":106,
+        "qty": 10
+    }
+]

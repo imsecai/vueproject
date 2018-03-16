@@ -12,6 +12,7 @@ var db = mysql.createPool({
 module.exports = {
     select: function(_sql, _callback){
         db.query(_sql, function(error, results,fields){
+        //    console.log(results);
             if(error){
                 _callback({status: false, error: error})
             }else{
@@ -21,9 +22,10 @@ module.exports = {
             
         })
     },
-    insert: function(_sql,_sql1,_callback){
-        db.query(_sql,_sql1, function(error, results,fields){
-            // console.log(error,results);
+
+    insert: function(_sql,_callback){
+        
+        db.query(_sql, function(error, results,fields){
             if(error){
                 _callback({status: false, error: error})
             }else{
@@ -32,12 +34,11 @@ module.exports = {
         })
     },
     delete: function(_sql, _callback){
-        db.query(_sql, function(error, results,fields){
-            // console.log(results);
+        db.query(_sql, function (error, results, fields) {
             if(error){
-                _callback({status: false, error: error})
+                _callback({ status: false, error: error })
             }else{
-                _callback({status: true, data: {results}});
+                _callback({ status: true, data: { results, fields } });
             }
         })
     },

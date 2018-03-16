@@ -31,9 +31,13 @@ body,html{
                 display:flex;
                 color: #b2b4b6;
                 text-align:center;
-                i{
-                    width: 50%;
-                    font-size: 60px;
+                padding-left:20px;
+                a{
+                    text-align:center;
+                    i{
+                        width: 50%;
+                        font-size: 60px;
+                    }
                 }
             }
         }

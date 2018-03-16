@@ -1,0 +1,111 @@
+#payment{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    .header {
+        .payment-title {
+            padding: .333333rem/* 25/75 */
+            .426667rem/* 32/75 */
+            ;
+            font-size: .506667rem/* 38/75 */
+            ;
+            margin-bottom: .266667rem/* 20/75 */
+            ;
+            display: flex;
+            justify-content: space-between;
+            li:nth-child(2) {
+                font-weight: bold;
+            }
+        }
+    }
+    .main{
+        flex:1;
+        padding-top: .266667rem/* 20/75 */;
+        background: #fafafa;
+        .success{
+           background: #fff;
+           text-align:center;
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+           font-size: .426667rem /* 32/75 */;
+           line-height: .64rem /* 48/75 */;
+           padding:.906667rem /* 68/75 */ 0;
+           font-weight:bold; 
+           i{
+               display:block;
+               width: .666667rem /* 50/75 */;
+               height: .666667rem /* 50/75 */;
+               font-size: .666667rem /* 50/75 */;
+               color:#ff5541;
+           }
+        }
+        .paymentInf{
+            border-top: .013333rem /* 1/75 */ #ccc solid;
+            border-bottom: .013333rem /* 1/75 */ #ccc solid;
+            background: #fff;
+            padding: 0 .426667rem /* 32/75 */;
+            font-size: .346667rem /* 26/75 */;
+            line-height: 1.226667rem /* 92/75 */;
+            margin-bottom: .266667rem /* 20/75 */;
+            .payNum{
+                border-bottom: .013333rem /* 1/75 */ solid #ccc;
+            }
+            .payMoney{
+                font-size: .4rem /* 30/75 */;
+                color: #ff5541;
+            }
+        }
+        .payMethods{
+            background: #fff;
+            padding:0 .426667rem /* 32/75 */;
+            border-top: .013333rem/* 1/75 */#ccc solid;
+            border-bottom: .013333rem/* 1/75 */#ccc solid;
+
+            p{
+                font-size: .346667rem /* 26/75 */;
+                line-height: 1.226667rem /* 92/75 */;
+                i{
+                    display: inline-block;
+                    width: .333333rem /* 25/75 */;
+                    height: .333333rem /* 25/75 */;
+                    font-size: .333333rem /* 25/75 */;
+                    margin-right: .266667rem /* 20/75 */;
+                }
+                .izhifubao{
+                    color:#4A90E2;
+
+                }
+                .iweixinzhifu{
+                    color:#58bc58;  
+                }
+                display: flex;
+                justify-content: space-between;
+                .select{
+                    align-self: center;
+                    display: inline-block;
+                    width: .4rem /* 30/75 */;
+                    height: .4rem/* 30/75 */;
+                    border-radius: 50%;
+                    border:.013333rem /* 1/75 */ solid #ccc;
+                }
+                .active{
+                    background: #ff5541;
+                }
+                
+            }
+        }
+
+
+    }
+
+    .footer{
+        font-size: .453333rem/* 34/75 */;
+        line-height: 1.173333rem/* 88/75 */;
+        text-align:center;
+        background: #ff5541;
+        color:#fff;
+
+    }
+
+}
