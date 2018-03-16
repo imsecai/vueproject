@@ -36,7 +36,7 @@ const Http = {
        //new Promise 是为进行在vue store里面进行异步传值
        var path = getUrl(url);
        //post请求
-       console.log('post',url,query);
+    //    console.log('post',url,query);
        axios({
            url:path,
            method:'post',

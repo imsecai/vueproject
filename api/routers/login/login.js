@@ -14,6 +14,7 @@ module.exports = {
             var password = req.body.password;
             db.select(`select * from user where username = "${name}" and password = "${password}" `,
                 function(result){
+                    
                     var status = result.status;
                     if(status){
                         res.send({status:'ok',lg:result.data.results[0]});

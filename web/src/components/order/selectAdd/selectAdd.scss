@@ -1,0 +1,64 @@
+#selectAdd{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+
+    .header {
+        .selectAdd-title {
+            padding: .333333rem/* 25/75 */.426667rem/* 32/75 */;
+            font-size: .506667rem/* 38/75 */;
+            margin-bottom: .266667rem/* 20/75 */;
+            display: flex;
+            justify-content: space-between;
+            li:nth-child(2) {
+                font-weight: bold;
+            }
+        }
+    }
+    .main{
+        flex:1;
+        overflow: auto;
+        .selectAdd-list{
+            li{
+                border-bottom: .013333rem /* 1/75 */ solid #ccc;
+                padding:0 .426667rem /* 32/75 */;
+                margin-bottom: .266667rem /* 20/75 */;
+                position: relative;
+                p{
+                    font-size: .4rem /* 30/75 */;
+                    line-height: 1.2rem /* 90/75 */;
+                }
+                .nickname_phone{
+                    font-weight:bold;
+                }
+                .address{
+                    color:#CCC;
+                }
+                i{
+                    display: block;
+                    width: .666667rem /* 50/75 */;
+                    height: .666667rem /* 50/75 */;
+                    line-height: .666667rem /* 50/75 */;
+                    border-radius:50%;
+                    position: absolute;
+                    right: .426667rem /* 32/75 */;
+                    top: .666667rem /* 50/75 */;
+                    background: #ff5541;
+                    text-align:center;
+                    color:#fff;
+                    
+                }
+            }
+        }
+    }
+
+    .footer{
+        font-size: .453333rem /* 34/75 */;
+        line-height: 1.173333rem /* 88/75 */;
+        text-align:center;
+        background: #ff5541;
+        color:#fff;
+
+    }
+
+}

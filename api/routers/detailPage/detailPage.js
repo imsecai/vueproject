@@ -20,5 +20,10 @@ module.exports={
                 res.send(options);
             })
         });
+        app.get("/getBuyList",(req,res)=>{
+            db.mysql.select("select * from buylist where Status=0",options=>{
+                res.send(options);
+            })
+        });
     }
 }

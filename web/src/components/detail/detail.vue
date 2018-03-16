@@ -65,6 +65,9 @@
         http.get('Detail',{pID:this.pID}).then((result)=>{
                 this.GoodsData=result.data.data.results[0];
               });
+        http.get('getBuyList').then((res)=>{
+          console.log(res);
+        })
       },
        data(){
            return{

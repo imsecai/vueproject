@@ -1,0 +1,16 @@
+body,html{height:100%;width: 100%;}
+#page {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  
+  .top{height:1.333333rem /* 100/75 */}
+  #bottom{
+      flex:1;overflow:auto;
+      li{
+          height:1000px;width:100%;
+      }
+  }
+}
+
