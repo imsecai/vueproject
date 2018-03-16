@@ -38,7 +38,7 @@
       </main>
     </div>
       <footer id="buynow">
-          <span>立即购买</span><span>加入购物车</span>
+          <span id="tocar" @click="tocar">立即购买 <i class="fa fa-cart-arrow-down"></i></span><span id="incar" >加入购物车 <i class="fa fa-cart-plus"></i></span>
       </footer> 
    </div>
 </template>
@@ -57,16 +57,20 @@
       dots:true
     });
     $('#carousel_detail button').remove();
-  })
+  });
    export default{
       mounted:function(){
-        http.get('Detail',{pID:this.$route.params.pID}).then((result)=>{
+        this.pID=this.$route.params.pID;
+        console.log('mounted',this.pID);
+        http.get('Detail',{pID:this.pID}).then((result)=>{
                 this.GoodsData=result.data.data.results[0];
               });
       },
        data(){
            return{
                GoodsData:[],
+               buylist:[],
+               pID:'',
                size:"单人款",
                DetailSrc:["detail1.jpg","detail2.jpg","detail3.jpg","detail4.jpg","detail5.jpg","detail6.jpg","detail7.jpg","detail8.jpg","detail9.jpg","detail10.jpg","detail11.jpg","detail12.jpg"]
            }
@@ -79,10 +83,28 @@
               item.classList.remove("sel_size");
             })
             event.target.classList.add('sel_size');
-          }
-       },
-       components:{
-        
+          },
+          tocar(){
+            for(var i=0;i<this.buylist.length;i++){
+              if(this.buylist[i].pID == this.pID){
+                http.post('modifyList',{pID:this.pID}).then((res)=>{
+                  console.log("已修改");
+                })
+                return
+              }
+            }
+            if(i==this.buylist.length){
+               var buy={pID:this.$route.params.pID,Qty:1,Title:this.GoodsData.Title,Material:this.GoodsData.Material,Price:this.GoodsData.Price,Size:this.size,Img1:this.GoodsData.Img1}
+                this.buylist.push(buy);
+                http.post('inbuylist',buy).then((res)=>{
+                  console.log('插入信息：',res);
+                })
+            }
+            // router.push('shopCar');
+          },
+          // incar(){
+
+          // }
        },
        computed:{
            

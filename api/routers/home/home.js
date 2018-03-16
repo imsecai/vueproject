@@ -18,7 +18,6 @@ module.exports={
         });
         app.get("/Detail",(req,res)=>{
         var pID=req.query.pID;
-        console.log(pID)
             db.mysql.select(`select * from product where pID='${pID}'`,options=>{
                 res.send(options);
             })

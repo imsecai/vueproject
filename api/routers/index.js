@@ -7,6 +7,7 @@ var db = require('../db/db');
 var path = require('path');
 var listpage = require('./listPage/listPage.js')
 var loginPost = require('./login/login');
+const detailPage=require('./detailPage/detailPage.js');
 const home=require('./home/home');
 app.all('*', function(req, res, next) {
             res.header("Access-Control-Allow-Origin", "*");
@@ -27,6 +28,7 @@ module.exports = {
         loginPost.userPost(app,db);           
         home.register(app);
         listpage.register(app,db)
+        detailPage.register(app);
         app.listen(port,function(){
             console.log('connect success')
         });
