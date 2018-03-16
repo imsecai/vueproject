@@ -8,6 +8,7 @@ var path = require('path');
 var listpage = require('./listPage/listPage.js')
 var loginPost = require('./login/login');
 var myorderPost = require('./myorder/myorder')
+const detailPage=require('./detailPage/detailPage.js');
 var shopPost = require('./shop/shop');
 const home=require('./home/home');
 app.all('*', function(req, res, next) {
@@ -28,6 +29,7 @@ module.exports = {
     start:function(port){
         loginPost.userPost(app,db);           
         home.register(app);
+        detailPage.register(app);
         listpage.register(app,db);
         myorderPost.myorderListPost(app,db);
         loginPost.userPost(app, db);

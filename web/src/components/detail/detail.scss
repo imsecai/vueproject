@@ -43,7 +43,10 @@ body,html{
             img{width:100%;}
         }       
     }
-    #buynow{height:1.1rem;display:flex;justify-content: space-between;text-align:center;
-            span{flex:1;line-height: 1.1rem;font-size:28px;}
+    #buynow{height:1rem;display:flex;justify-content: space-between;text-align:center;
+            span{flex:1;line-height:1rem;font-size:32px;color:white;font-weight:100;}
+            #tocar{background:#FF3300;}
+            #incar{background:#FF0000;}
+            i{font-size:44px;}
     }
 }

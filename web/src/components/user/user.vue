@@ -12,7 +12,9 @@
             <ul>
                 <li>
                     <div class="bcar">
+                        <router-link to="shopCar">
                         <i class="iconfont icon-gouwuche"></i>
+                        </router-link>
                         <p>购物车</p>
                     </div>
                 </li>

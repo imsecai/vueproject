@@ -11,7 +11,7 @@
             <ul class="manage-list">
                 <li v-for="(obj,idx) in dataset">
                     <input type="checkbox" class="checkbox" :checked="lis.indexOf(idx) > -1" @click="select(idx)"/>
-                    <div class="img"><img :src="obj.Img1" alt=""></div>
+                    <div class="img"><img :src="'http://localhost:1111/src/assets/productimg/' + obj.Img1" alt=""></div>
                     <div class="qty">
                         <span class="sub" @click="sub(obj.buyID,idx)">-</span>
                         <span class="res">{{ obj.Qty }}</span>

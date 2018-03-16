@@ -3,7 +3,7 @@
         
         <div class="header">
             <ul class="shopCar-title">
-                <li>&lt;</li>
+                <li><router-link to="/User">&lt;</router-link></li>
                 <li>购物车</li>
                 <li><router-link to="/manage">管理</router-link></li>
             </ul>

@@ -22,14 +22,12 @@ module.exports = {
             
         })
     },
-
     insert: function(_sql,_callback){
-        
         db.query(_sql, function(error, results,fields){
             if(error){
                 _callback({status: false, error: error})
             }else{
-                _callback(results.insertId);
+                _callback({status:true,buyID:results.insertId});
             }
         })
     },
@@ -44,7 +42,6 @@ module.exports = {
     },
     update: function(_sql, _callback){
         db.query(_sql, function(error, results,fields){
-            // console.log(results);
             if(error){
                 _callback({status: false, error: error})
             }else{
