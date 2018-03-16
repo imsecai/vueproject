@@ -49,10 +49,10 @@
     export default {
         data(){
             return {
+                show:false,
                 dataset:[],
                 lis:[],
                 total:0,
-                show:false,
             }
         },
         methods:{
@@ -91,6 +91,10 @@
         },
         mounted(){
             this.show = true;
+            var username = window.localStorage.getItem('data')
+            if(!username){
+                this.$router.push('/Login');
+            }
             http.post('getBuyList').then((res)=>{
                 this.dataset = res.data.getBuyList;
                 console.log(res)

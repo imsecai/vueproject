@@ -43,11 +43,11 @@
     export default {
         data(){
             return {
+                show:false,
                 dataset:[],
                 lis:[],
                 total:0,
                 res:'',
-                show:false,
                 arrIdx:[]
             }
         },
@@ -128,6 +128,9 @@
                 
             }
         },
+        components:{
+            spinner,
+        },
         mounted(){
             this.show = true;
             http.post('getBuyList').then((res)=>{
@@ -135,9 +138,6 @@
                 this.dataset = res.data.getBuyList;
             })
             this.show = false;
-        },
-        components:{
-            spinner,
         }
 
         

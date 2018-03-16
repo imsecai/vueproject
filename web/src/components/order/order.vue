@@ -54,8 +54,8 @@
     export default {
         data(){
             return {
-                dataset:[],
                 show : false,
+                dataset:[],
                 selectAddSet:[],
                 total1:''
 
@@ -74,7 +74,7 @@
             this.show = true;
             Http.post('getBuyList').then((res)=>{
                 this.dataset = res.data.getBuyList;
-                console.log(res)
+                // console.log(res)
             })
             Http.post('selectAdd').then((res)=>{
                 this.selectAddSet = res.data.selectAdd;
@@ -89,7 +89,7 @@
                 
             })
             this.total1 = n;
-            console.log(this.total1)
+            // console.log(this.total1)
         }
     
     }

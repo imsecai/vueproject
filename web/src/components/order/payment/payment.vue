@@ -20,11 +20,9 @@
         <div class="payMethods">
             <p>支付方式</p>
             <p><span><i class="ifont izhifubao"></i> 支付宝</span>
-            <span class="select" v-bind:class="{active:isActive}"
-             @click="selectZhi"></span></p>
+            <span class="select" v-bind:class="{active:isActive}"></span></p>
             <p><span><i class="ifont iweixinzhifu"> </i> 微信支付</span>
-            <span class="select" v-bind:class="{active:isActive1}"
-            @click="selectWei"></span></p>
+            <span class="select" v-bind:class="{active:isActive1}"></span></p>
         </div>
 
     </div>
@@ -42,12 +40,12 @@ import spinner from "../../spinner/spinner.vue"
 export default {
     data(){
         return{
+            show:false,
             isActive:false,
             isActive1:false,
             tip:0,
             dataset:[],
             total:0,
-            show:false
 
         }
     },
@@ -71,6 +69,9 @@ export default {
             }
         }
     },
+    components:{
+        spinner,
+    },
     mounted(){
         this.show = true;
         Http.post('getBuyList').then((res)=>{
@@ -83,9 +84,6 @@ export default {
             })
         this.show = false;
     },
-    components:{
-        spinner,
-    }
 
   
 }

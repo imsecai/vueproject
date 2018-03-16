@@ -33,6 +33,7 @@
         确认添加
         </div>
     </router-link>
+    <spinner v-if="show"></spinner>
 
   </div>
 </template>
@@ -42,11 +43,13 @@
 
 <script>
     import './addAdd.scss'
+    import spinner from  '../../spinner/spinner.vue'
     import axios from 'axios'
     import http from '../../../httpClient/httpClient'
     export default {
         data(){
             return{
+                show:false,
                 nickname:'',
                 phone:'',
                 detadd:'',
@@ -58,10 +61,15 @@
                 county:'',
             }
         },
+        components:{
+            spinner,
+        },
         mounted(){
+            this.show = true;
             axios.get('http://localhost:1111/src/libs/region.json').then((res)=>{
                 this.provincialSet = res.data.regions;
             })
+            this.show = false;
         },
         methods:{
             getProvincial:function(){
