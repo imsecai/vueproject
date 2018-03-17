@@ -12,7 +12,7 @@ var db = mysql.createPool({
 module.exports = {
     select: function(_sql, _callback){
         db.query(_sql, function(error, results,fields){
-           console.log(results);
+           //console.log(results);
             if(error || results.length == 0){
                 _callback({status: false, error: error})
             }else if(results.length > 0){
@@ -21,23 +21,25 @@ module.exports = {
            
             
         })
-    },
-    insert: function(_sql,_sql1,_callback){
-        db.query(_sql,_sql1, function(error, results,fields){
-            console.log(error,results);
-            if(error){
+    },//插入
+    insert: function(_sql,_callback){
+        db.query(_sql, function(error, results,fields){
+
+            console.log("aaaa:"+error,results);
+
+            if(error!="null"){
                 _callback({status: false, error: error})
             }else{
-                _callback(results.insertId);
+               // _callback(results.insertId);
+                _callback({status: true, data: {results}});
             }
         })
     },
     delete: function(_sql, _callback){
         db.query(_sql, function(error, results,fields){
-            console.log(results);
-            if(error || results.length == 0){
+            if(error){
                 _callback({status: false, error: error})
-            }else if(results.length > 0){
+            }else{
                 _callback({status: true, data: {results}});
             }
         })
@@ -45,9 +47,9 @@ module.exports = {
     update: function(_sql, _callback){
         db.query(_sql, function(error, results,fields){
             console.log(results);
-            if(error || results.length == 0){
+            if(error){
                 _callback({status: false, error: error})
-            }else if(results.length > 0){
+            }else{
                 _callback({status: true, data: {results}});
             }
         })

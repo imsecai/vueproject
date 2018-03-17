@@ -12,7 +12,7 @@ module.exports = {
             //登录验证
             var name = req.body.username;
             var password = req.body.password;
-            db.select(`select * from user where user_phone = "${name}" and password = "${password}" `,
+            db.select(`select * from user where username = "${name}" and password = "${password}" `,
                 function(result){
                     var status = result.status;
                     if(status){
@@ -28,7 +28,7 @@ module.exports = {
             //验证用户手机号码
             var name = req.body.username;
             var password = req.body.password;
-            db.select(`select * from user where user_phone = "${name}"`,function(result){
+            db.select(`select * from user where username = "${name}"`,function(result){
                 if(result.status){
                     res.send({state:'ok'});
                 }else{
@@ -39,7 +39,7 @@ module.exports = {
         app.post('/zcUsername',function(req,res){
             var name = req.body.username;
             var password = req.body.password;
-            let sql = `insert into user (user_phone,password) VALUES ('${name}', '${password}')`;
+            let sql = `insert into user (username,password) VALUES ('${name}', '${password}')`;
             db.insert(sql,function(result){
                     if(result){
                         res.send({state:'ok'});
