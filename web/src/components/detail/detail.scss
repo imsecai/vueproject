@@ -1,0 +1,53 @@
+body,html{
+    height: 100%;
+}
+#app{height: 100%;}
+#DetailPage{display:flex;background:#FAFBFC;flex-direction: column;font-size:26px;height:100%;
+    #pre{position:absolute;left: 0.3rem;top:0.4rem;z-index:4;font-size:50px;}
+    #slide{
+        flex:1;
+        overflow-y:auto;
+    }
+    #carousel_detail{overflow:hidden;position:relative;
+        img{height:9.6rem;}
+        .slick-dots{height: 0.066667rem;position:absolute;left:50%;transform:translateX(-50%);bottom:4%;
+            li{margin:0 0.2rem;float: left;width:0.266667rem;height:0.066667rem;background:#A8A8A8;}
+            .slick-active{background:black;}
+        }
+    }
+    #safeguard{
+       display:flex; justify-content: space-between;background:#F5F5F5;
+       span{text-align:center;flex:1;color:#7A7D6A;font-size:24px;line-height: 0.853333rem;
+            i{color:red;}
+       }
+    }
+    main{background:white;padding:0 0.4rem;position:relative;
+        .title{font-size:36px;font-weight:600;height:1.066667rem;line-height: 1.066667rem;margin-left: 0.533333rem;}
+        .desc{height: 0.24rem;line-height: 0.24rem;color:#777A69;margin-left: 0.533333rem;}
+        .price{height: 1.4rem;line-height: 1.4rem;color:#FF4646;font-size:50px;font-weight:500;font-style:italic;margin-left: 0.533333rem;}
+        .size{display:flex;justify-content: space-between;
+            span{flex:1;text-align:center;border-radius:0.3rem;margin-right: 50px;height: 0.666667rem;background:#006699;color:white;line-height: 0.666667rem;
+            }
+            .sel_size{background:black;}
+        }
+        .pay{font-size:48px;color:#FF0033;position:absolute;right:0.8rem;top:0.8rem;}
+        .base{.fa{color:#99CC33;}
+            margin-top: 0.4rem;font-size:34px;font-weight:600;height:1.3rem;
+        }
+        .base_det{
+            font-size:24px;color:#ADAFA3;height: 0.933333rem;line-height: 0.933333rem;
+            span{color:black;margin-left: 0.4rem;}
+            .base_{display:inline-block;width:160px;padding-left: 0.2rem;}
+        }
+        #showGoods{
+            p{height: 1.333333rem;line-height: 1.333333rem;font-size:34px;font-weight:600;.fa{color:#99CC33;}}
+            img{width:100%;}
+        }       
+    }
+    #buynow{height:1rem;display:flex;justify-content: space-between;text-align:center;
+            span{flex:1;line-height:1rem;font-size:32px;color:white;font-weight:100;}
+            #tocar{background:#FF3300;}
+            #incar{background:#FF0000;}
+            i{font-size:44px;}
+    }
+}

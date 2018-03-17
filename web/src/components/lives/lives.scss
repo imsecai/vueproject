@@ -1,0 +1,58 @@
+.lives_box{
+    width: 100%;
+    height: 100%;
+    display:flex;
+    flex-direction:column;
+    .lives_head{
+        height:1.466667rem;
+        padding:.32rem .4rem;
+        input{
+            height:.826667rem;
+            width: 9.186667rem;
+            background:#EBEBEB;
+            color:#B2B4B6;
+            font-size:.346667rem;
+            border-radius:3.24rem;
+            padding-left:.6rem;
+        }
+    }
+    .lives_gap{
+        height:.333333rem;
+        background:#F6F6F6;
+    }
+    h2{
+        font-size:.453333rem;
+        font-weight: bold;
+        margin:.4rem;
+    }
+    ul{
+        flex:1;
+        overflow-x:hidden;
+        li{
+            width:100%;
+            padding:0 .2rem .4rem .2rem;
+            // border-top:1px solid #666;
+            background:#eee;
+            margin-bottom:.133333rem;
+            h3{
+                display:block;
+                font-size:.533333rem;
+                line-height: 1.266667rem;
+            }
+            img{
+                border:.04rem solid #fff;
+            }
+            .lives_p1{
+                display:block;
+                font-size:.346667rem;
+                margin-top:.333333rem;
+            }
+            .lives_p2{
+                display:block;
+                margin-top:.4rem;
+                font-size:.32rem;
+                color:#FF7C6D;
+            }
+        }
+    }
+}
