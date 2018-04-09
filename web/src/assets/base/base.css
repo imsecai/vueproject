@@ -23,7 +23,6 @@ img{width: 100%;height: 100%;display:block;}
 h1,h2,h3,h4,h5,h6{
     font-weight:normal;
     font-size:1em;
-    
 }
 div,header,nav,main,article,section,aside,footer,figure,figcaption,details,summary{
     display:block;
@@ -42,7 +41,6 @@ div,header,nav,main,article,section,aside,footer,figure,figcaption,details,summa
 }
 .fr{
     float:right;
-    
 }
 *{
     box-sizing:border-box;
@@ -51,5 +49,3 @@ s,i,em{
     font-style:normal;
     text-decoration:none;
 }
-
-

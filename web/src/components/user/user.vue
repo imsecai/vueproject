@@ -12,27 +12,25 @@
             <ul>
                 <li>
                     <div class="bcar">
-                        <router-link to="shopCar">
-                        <i class="iconfont icon-gouwuche"></i>
-                        </router-link>
+                        <i>i</i>
                         <p>购物车</p>
                     </div>
                 </li>
                 <li>
                     <div class="scang">
-                        <i class="iconfont icon-shoucang"></i>
+                        <i>i</i>
                         <p>收藏</p>
                     </div>
                 </li>
                 <li>
                     <div class="lquan">
-                        <i class="iconfont icon-weibiaoti2fuzhi02"></i>
+                        <i>i</i>
                         <p>礼券</p>
                     </div>
                 </li>
                 <li>
                     <div class="fxiang">
-                        <i class="iconfont icon-fenxiang"></i>
+                        <i>i</i>
                         <p>分享</p>
                     </div>
                 </li>
@@ -47,14 +45,26 @@
             <ul>
                 <li>
                     <div class="bcar">
-                        <i class="iconfont icon-daifukuan"></i>
-                        <p><router-link to="/myorder">待付款</router-link></p>
+                        <i>i</i>
+                        <p>代付款</p>
                     </div>
                 </li>
                 <li>
                     <div class="scang">
-                        <i class="iconfont icon-daishouhuo"></i>
-                        <p><router-link to="/myorder2">待收货</router-link></p>
+                        <i>i</i>
+                        <p>待收货</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="lquan">
+                        <i>i</i>
+                        <p>待评价</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="fxiang">
+                        <i>i</i>
+                        <p>退换/售后</p>
                     </div>
                 </li>
             </ul>
@@ -63,9 +73,16 @@
         <div class="user_tab_img">
             <img src="../../assets/user_tab_img.jpg" />
         </div>
-        <button class="loginout" v-on:click="exit">退出当前账号</button>
+        <!-- <div class="loginout">退出当前账号</div> -->
+        <button class="loginout">退出当前账号</button>
 
         <bottoms></bottoms>
+
+<!--         <h1>{{text}}</h1>
+        <p>{{get_msg}}</p>
+        <p></p>
+        <button @click='getmsg'>get请求点我</button>
+        <button @click="postmsg">post请求点我</button> -->
 
     </div>
 </template>
@@ -76,34 +93,27 @@
     export default{
         data(){
             return{
-                phonenumber:''
+                text:'这是用户组件',
+                phonenumber:'13212341234'
             }
         },
         components:{
             bottoms
         },
-        mounted(){
-            try{
-                var username = JSON.parse(localStorage.getItem("data")).username;
-                this.phonenumber = username;
-            }catch(err){
-                console.log(err)
-            }
-            var username = window.localStorage.getItem('data')
-            if(!username){
-                this.$router.push('/Login');
+        methods:{
+            getmsg(){
+                this.$store.dispatch('getmsg_get',{path:'product/',msg:{houseOwner:'Kemo'}});
+            }, 
+            postmsg(){
+                this.$store.dispatch('getmsg_post',{path:'product',msg:{houseOwner:'Kemo'}});
             }
         },
-        methods:{
-            exit(){
-                localStorage.removeItem('data');
-                this.username = '';
-
-                setTimeout(function(){
-                      this.$router.push('/Login')
-                  }.bind(this),1000)
-
-                return;
+        computed:{
+            get_msg:{
+                get:function(){
+                    console.log(11555);
+                    return this.$store.getters.getmsg_get;
+                }
             }
         }
     }
